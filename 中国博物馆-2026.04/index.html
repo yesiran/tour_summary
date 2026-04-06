@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>穿越5000年的沉思 · 中国国家博物馆</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #faf8f5;
+      color: #3a2e2a;
+      font-family: "Noto Serif SC", "Source Han Serif SC", "STSong", "SimSun", serif;
+      line-height: 1.9;
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 40px 24px 80px;
+    }
+
+    /* Header */
+    header {
+      text-align: center;
+      padding: 60px 0 50px;
+      border-bottom: 1px solid #d8cfc4;
+      margin-bottom: 60px;
+    }
+
+    header::before,
+    header::after {
+      content: "───";
+      color: #c4b49a;
+      display: block;
+      font-size: 12px;
+      letter-spacing: 6px;
+    }
+
+    header::before {
+      margin-bottom: 20px;
+    }
+
+    header::after {
+      margin-top: 20px;
+    }
+
+    h1 {
+      font-size: 28px;
+      font-weight: 400;
+      letter-spacing: 6px;
+      color: #3a2e2a;
+      margin-bottom: 14px;
+    }
+
+    .subtitle {
+      font-size: 13px;
+      color: #9a8e82;
+      letter-spacing: 3px;
+      line-height: 2;
+    }
+
+    /* Chapter */
+    .chapter {
+      margin-bottom: 80px;
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .chapter.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .chapter-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    .chapter-num {
+      font-size: 11px;
+      color: #c4b49a;
+      letter-spacing: 2px;
+      white-space: nowrap;
+    }
+
+    .chapter-line {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, #d8cfc4, transparent);
+    }
+
+    .chapter-title {
+      font-size: 20px;
+      font-weight: 400;
+      letter-spacing: 4px;
+      color: #3a2e2a;
+      margin-bottom: 6px;
+    }
+
+    .chapter-subtitle {
+      font-size: 13px;
+      color: #9a8e82;
+      letter-spacing: 2px;
+      line-height: 2;
+      margin-bottom: 24px;
+    }
+
+    /* Photo Grid */
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-bottom: 8px;
+    }
+
+    .photo-grid.cols-3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .photo-grid .photo-wrap.span-2 {
+      grid-column: span 2;
+    }
+
+    .photo-grid .photo-wrap.span-3 {
+      grid-column: span 3;
+    }
+
+    /* Single photo - full width */
+    .photo-single {
+      margin-bottom: 8px;
+    }
+
+    /* Image */
+    .photo-wrap {
+      position: relative;
+      cursor: pointer;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+    }
+
+    .photo-wrap img {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      background-color: #ede9e2;
+      transition: transform 0.4s ease;
+      aspect-ratio: 4/3;
+    }
+
+    .photo-wrap.tall img {
+      aspect-ratio: 3/4;
+    }
+
+    .photo-wrap.auto img {
+      aspect-ratio: auto;
+      object-fit: contain;
+    }
+
+    .photo-wrap:hover img {
+      transform: scale(1.03);
+    }
+
+    .photo-caption {
+      padding: 10px 12px;
+      background: #f5f1eb;
+    }
+
+    .photo-caption .caption-title {
+      font-size: 13px;
+      color: #3a2e2a;
+      letter-spacing: 1px;
+      font-weight: 400;
+    }
+
+    .photo-caption .caption-desc {
+      font-size: 11px;
+      color: #9a8e82;
+      letter-spacing: 1px;
+      margin-top: 2px;
+      line-height: 1.6;
+    }
+
+    .photo-hint {
+      position: absolute;
+      top: 10px;
+      right: 12px;
+      font-size: 10px;
+      color: rgba(255,255,255,0.65);
+      letter-spacing: 1px;
+      pointer-events: none;
+      background: rgba(0,0,0,0.25);
+      padding: 2px 8px;
+      border-radius: 10px;
+    }
+
+    /* Poem / Quote block */
+    .quote {
+      background: linear-gradient(135deg, #f5f1eb 0%, #faf8f5 100%);
+      border-left: 2px solid #c4b49a;
+      padding: 18px 22px;
+      margin-top: 20px;
+      margin-bottom: 8px;
+    }
+
+    .quote-text {
+      font-size: 14px;
+      color: #4a3f36;
+      letter-spacing: 2px;
+      line-height: 2.2;
+    }
+
+    .quote-source {
+      font-size: 11px;
+      color: #9a8e82;
+      letter-spacing: 2px;
+      margin-top: 6px;
+    }
+
+    /* Interlude - special section */
+    .interlude {
+      text-align: center;
+      padding: 40px 20px;
+      margin-bottom: 0;
+    }
+
+    .interlude .chapter-subtitle {
+      font-style: italic;
+    }
+
+    /* Lightbox */
+    .lightbox {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(20, 15, 10, 0.92);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      cursor: zoom-out;
+      flex-direction: column;
+    }
+
+    .lightbox.active {
+      display: flex;
+    }
+
+    .lightbox img {
+      max-width: 92vw;
+      max-height: 85vh;
+      object-fit: contain;
+      border-radius: 2px;
+      box-shadow: 0 8px 60px rgba(0,0,0,0.6);
+    }
+
+    .lightbox-caption {
+      color: rgba(255,255,255,0.7);
+      font-size: 13px;
+      letter-spacing: 2px;
+      margin-top: 16px;
+      text-align: center;
+    }
+
+    .lightbox-close {
+      position: fixed;
+      top: 20px;
+      right: 28px;
+      font-size: 28px;
+      color: rgba(255,255,255,0.6);
+      cursor: pointer;
+      line-height: 1;
+      transition: color 0.2s;
+      z-index: 10000;
+    }
+
+    .lightbox-close:hover {
+      color: rgba(255,255,255,0.9);
+    }
+
+    .lightbox-nav {
+      position: fixed;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 36px;
+      color: rgba(255,255,255,0.5);
+      cursor: pointer;
+      transition: color 0.2s;
+      z-index: 10000;
+      user-select: none;
+      padding: 20px;
+    }
+
+    .lightbox-nav:hover {
+      color: rgba(255,255,255,0.9);
+    }
+
+    .lightbox-prev {
+      left: 10px;
+    }
+
+    .lightbox-next {
+      right: 10px;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding-top: 50px;
+      border-top: 1px solid #d8cfc4;
+      color: #c4b49a;
+      font-size: 11px;
+      letter-spacing: 3px;
+    }
+
+    footer::before {
+      content: "\25C7";
+      display: block;
+      margin-bottom: 12px;
+      font-size: 14px;
+    }
+
+    footer a {
+      color: #9a8e82;
+      text-decoration: none;
+      border-bottom: 1px dotted #c4b49a;
+      transition: color 0.2s;
+    }
+
+    footer a:hover {
+      color: #3a2e2a;
+    }
+
+    .footer-back {
+      display: inline-block;
+      margin-top: 16px;
+      font-size: 12px;
+      letter-spacing: 2px;
+    }
+
+    /* Responsive */
+    @media (min-width: 640px) {
+      .photo-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .photo-grid.cols-2 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 639px) {
+      body {
+        padding: 28px 16px 60px;
+        max-width: 100%;
+      }
+      h1 {
+        font-size: 22px;
+        letter-spacing: 4px;
+      }
+      .chapter {
+        margin-bottom: 56px;
+      }
+      .chapter-title {
+        font-size: 17px;
+      }
+      .photo-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .photo-grid .photo-wrap.span-3 {
+        grid-column: span 2;
+      }
+      .photo-grid.cols-2 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .lightbox-nav {
+        font-size: 28px;
+        padding: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>穿越5000年的沉思</h1>
+    <p class="subtitle">叶思染 · 2026年4月4日 · 中国国家博物馆</p>
+  </header>
+
+  <!-- 壹 · 青铜回响 -->
+  <section class="chapter">
+    <div class="chapter-meta">
+      <span class="chapter-num">壹</span>
+      <div class="chapter-line"></div>
+    </div>
+    <h2 class="chapter-title">青铜回响</h2>
+    <p class="chapter-subtitle">
+      三千年前的炉火尚未冷却<br>
+      每一道纹饰都是先民写给后世的密信
+    </p>
+    <div class="photo-grid">
+      <div class="photo-wrap" onclick="openLightbox(this)" data-src="IMG_001.jpg" data-caption="虢季子白盘 · 西周晚期">
+        <img src="IMG_001.jpg" alt="虢季子白盘" loading="lazy">
+        <span class="photo-hint">点击大图</span>
+        <div class="photo-caption">
+          <div class="caption-title">虢季子白盘</div>
+          <div class="caption-desc">西周三大青铜重器之一，111字铭文记录征伐猃狁之功</div>
+        </div>
+      </div>
+      <div class="photo-wrap" onclick="openLightbox(this)" data-src="IMG_002.jpg" data-caption="虎纹青铜铙 · 商代">
+        <img src="IMG_002.jpg" alt="虎纹青铜铙" loading="lazy">
+        <span class="photo-hint">点击大图</span>
+        <div class="photo-caption">
+          <div class="caption-title">虎纹青铜铙</div>
+          <div class="caption-desc">湖南宁乡出土，商代祭祀中的打击乐器</div>
+        </div>
+      </div>
+      <div class="photo-wrap" onclick="openLightbox(this)" data-src="IMG_003.jpg" data-caption="四羊方尊 · 商代晚期">
+        <img src="IMG_003.jpg" alt="四羊方尊" loading="lazy">
+        <span class="photo-hint">点击大图</span>
+        <div class="photo-caption">
+          <div class="caption-title">四羊方尊</div>
+          <div class="caption-desc">国博镇馆之宝，现存商代最大方尊，青铜铸造的极致</div>
+        </div>
+      </div>
+      <div class="photo-wrap" onclick="openLightbox(this)" data-src="IMG_004.jpg" data-caption="龙虎纹青铜尊 · 商代晚期">
+        <img src="IMG_004.jpg" alt="龙虎纹青铜尊" loading="lazy">
+        <span class="photo-hint">点击大图</span>
+        <div class="photo-caption">
+          <div class="caption-title">龙虎纹青铜尊</div>
+          <div class="caption-desc">安徽阜南出土，虎口衔人的神秘纹饰</div>
+        </div>
+      </div>
+      <div class="photo-wrap" onclick="openLightbox(this)" data-src="IMG_007.jpg" data-caption="令狐君孺子青铜壶 · 战国">
+        <img src="IMG_007.jpg" alt="令狐君孺子青铜壶" loading="lazy">
+        <span class="photo-hint">点击大图</span>
+        <div class="photo-caption">
+          <div class="caption-title">令狐君孺子壶</div>
+          <div class="caption-desc">战国韩国遗物，家族铸器祈福</div>
+        </div>
+      </div>
+      <div class="photo-wrap" onclick="openLightbox(this)" data-src="IMG_008.jpg" data-caption="春秋吴王青铜剑">
+        <img src="IMG_008.jpg" alt="吴王青铜剑" loading="lazy">
+        <span class="photo-hint">点击大图</span>
+        <div class="photo-caption">
+          <div class="caption-title">吴王剑</div>
+          <div class="caption-desc">埋藏两千余年，剑刃依然锋利如新</div>
+        </div>
+      </div>
+    </div>
+    <div class="quote">
+      <p class="quote-text">国之大事，在祀与戎。</p>
+      <p class="quote-source">——《左传 · 成公十三年》</p>
+    </div>
+  </section>
+
+  <!-- 贰 · 三星堆之光 -->
+  <section class="chapter">
+    <div class="chapter-meta">
+      <span class="chapter-num">贰</span>
+      <div class="chapter-line"></div>
+    </div>
+    <h2 class="chapter-title">三星堆之光</h2>
+    <p class="chapter-subtitle">
+      长江上游的古蜀先民，用青铜铸下了一个<br>
+      超越想象的平行世界
+    </p>
+    <div class="photo-grid cols-2">
+      <div class="photo-wrap" onclick="openLightbox(this)" data-src="IMG_005.jpg" data-caption="青铜面具 · 三星堆">
+        <img src="IMG_005.jpg" alt="青铜面具" loading="lazy">
+        <span class="photo-hint">点击大图</span>
+        <div class="photo-caption">
+          <div class="caption-title">青铜面具</div>
+          <div class="caption-desc">纵目凸眼，或为传说中蚕丛氏的形象</div>
+        </div>
+      </div>
+      <div class="photo-wrap" onclick="openLightbox(this)" data-src="IMG_006.jpg" data-caption="青铜尊 · 三星堆">
+        <img src="IMG_006.jpg" alt="青铜尊" loading="lazy">
+        <span class="photo-hint">点击大图</span>
+        <div class="photo-caption">
+          <div class="caption-title">青铜尊</div>
+          <div class="caption-desc">肩立四鸟，古蜀与中原文明交融的见证</div>
+        </div>
+      </div>
+    </div>
+    <div class="photo-grid">
+      <div class="photo-wrap" onclick="openLightbox(this)" data-src="IMG_041.jpg" data-caption="青铜大立人像 · 三星堆">
+        <img src="IMG_041.jpg" alt="青铜大立人像" loading="lazy">
+        <span class="photo-hint">点击大图</span>
+        <div class="photo-caption">
+          <div class="caption-title">青铜大立人像</div>
+          <div class="caption-desc">2.62米"东方巨人"，集神权王权于一身</div>
+        </div>
+      </div>
+      <div class="photo-wrap" onclick="openLightbox(this)" data-src="IMG_042.jpg" data-caption="青铜人头像群 · 三星堆">
+        <img src="IMG_042.jpg" alt="青铜人头像群" loading="lazy">
+        <span class="photo-hint">点击大图</span>
+        <div class="photo-caption">
+          <div class="caption-title">人头像群</div>
+          <div class="caption-desc">祭祀坑出土，古蜀统治者或祭司群像</div>
+        </div>
+      </div>
+      <div class="photo-wrap" onclick="openLightbox(this)" data-src="IMG_043.jpg" data-caption="青铜着裙立人像 · 三星堆">
+        <img src="IMG_043.jpg" alt="青铜着裙立人像" loading="lazy">
+        <span class="photo-hint">点击大图</span>
+        <div class="photo-caption">
+          <div class="caption-title">着裙立人像</div>
+          <div class="caption-desc">花冠长袍，双手环抱，大巫师的庄严法相</div>
+        </div>
+      </div>
+      <div class="photo-wrap" onclick="openLightbox(this)" data-src="IMG_044.jpg" data-caption="骑兽顶尊人像 · 三星堆">
+        <img src="IMG_044.jpg" alt="骑兽顶尊人像" loading="lazy">
+        <span class="photo-hint">点击大图</span>
+        <div class="photo-caption">
+          <div class="caption-title">骑兽顶尊人像</div>
+          <div class="caption-desc">神兽、人像、尊三层叠加，通天达地的媒介</div>
+        </div>
+      </div>
+      <div class="photo-wrap span-2" onclick="openLightbox(this)" data-src="IMG_045.jpg" data-caption="一号青铜神树 · 三星堆">
+        <img src="IMG_045.jpg" alt="一号青铜神树" loading="lazy" style="aspect-ratio:16/9;">
+        <span class="photo-hint">点击大图</span>
+        <div class="photo-caption">
+          <div class="caption-title">一号青铜神树</div>
+          <div class="caption-desc">高3.96米，世界最大单体青铜器，九鸟栖枝，一龙盘旋——扶桑神话的物质化身</div>
+        </div>
+      </div>
+    </div>
+    <div class="quote">
+      <p class="quote-text">汤谷上有扶桑，十日所浴。<br>在黑齿北，居水中，有大木，九日居下枝，一日居上枝。</p>
+      <p class="quote-source">——《山海经 · 海外东经》</p>
+    </div>
+  </section>
+
+  <!-- 叁 · 礼乐春秋 -->
+  <section class="chapter">
+    <div class="chapter-meta">
+      <span class="chapter-num">叁</span>
+      <div class="chapter-line"></div>
+    </div>
+    <h2 class="chapter-title">礼乐春秋</h2>
+    <p class="chapter-subtitle">
+      钟鸣鼎食之间，天下秩序已定<br>
+      每一声回响，都是礼崩乐坏前的最后华章
+    </p>
+    <div class="photo-grid">
+      <div class="photo-wrap" onclick="openLightbox(this)" data-src="IMG_009.jpg" data-caption="曾侯乙铜鉴缶 · 战国早期">
+        <img src="IMG_009.jpg" alt="曾侯乙铜鉴缶" loading="lazy">
+        <span class="photo-hint">点击大图</span>
+        <div class="photo-caption">
+          <div class="caption-title">曾侯乙铜鉴缶</div>
+          <div class="caption-desc">世界最早的"冰箱"，夏冰冬温，精妙绝伦</div>
+        </div>
+      </div>
+      <div class="photo-wrap" onclick="openLightbox(this)" data-src="IMG_010.jpg" data-caption="曾仲斿父方壶 · 春秋早期">
+        <img src="IMG_010.jpg" alt="曾仲斿父方壶" loading="lazy">
+        <span class="photo-hint">点击大图</span>
+        <div class="photo-caption">
+          <div class="caption-title">曾仲斿父方壶</div>
+          <div class="caption-desc">冠状盖饰气势非凡，曾国贵族的祭祀重器</div>
+        </div>
+      </div>
+      <div class="photo-wrap" onclick="openLightbox(this)" data-src="IMG_011.jpg" data-caption="春秋青铜布币 · 晋国">
+        <img src="IMG_011.jpg" alt="布币" loading="lazy">
+        <span class="photo-hint">点击大图</span>
+        <div class="photo-caption">
+          <div class="caption-title">布币</div>
+          <div class="caption-desc">从铲子到货币，中国最早的金属铸币</div>
+        </div>
+      </div>
+      <div class="photo-wrap" onclick="openLightbox(this)" data-src="IMG_012.jpg" data-caption="王命传青铜虎节 · 战国楚">
+        <img src="IMG_012.jpg" alt="虎节" loading="lazy">
+        <span class="photo-hint">点击大图</span>
+        <div class="photo-caption">
+          <div class="caption-title">虎节</div>
+          <div class="caption-desc">错金工艺的通行凭证，古代的"身份证"</div>
+        </div>
+      </div>
+      <div class="photo-wrap" onclick="openLightbox(this)" data-src="IMG_013.jpg" data-caption="战国编钟">
+        <img src="IMG_013.jpg" alt="编钟" loading="lazy">
+        <span class="photo-hint">点击大图</span>
+        <div class="photo-caption">
+          <div class="caption-title">编钟</div>
+          <div class="caption-desc">一钟双音，两千年前已有完整七声音阶</div>
+        </div>
+      </div>
+      <div class="photo-wrap" onclick="openLightbox(this)" data-src="IMG_014.jpg" data-caption="春秋晋国青铜方壶">
+        <img src="IMG_014.jpg" alt="晋国方壶" loading="lazy">
+        <span class="photo-hint">点击大图</span>
+        <div class="photo-caption">
+          <div class="caption-title">晋国方壶</div>
+          <div class="caption-desc">透雕花冠、交龙纹，春秋青铜之巅峰</div>
+        </div>
+      </div>
+    </div>
+    <div class="quote">
+      <p class="quote-text">兴于诗，立于礼，成于乐。</p>
+      <p class="quote-source">——《论语 · 泰伯》</p>
+    </div>
+  </section>
+
+  <!-- 肆 · 汉风华章 -->
+  <section class="chapter">
+    <div class="chapter-meta">
+      <span class="chapter-num">肆</span>
+      <div class="chapter-line"></div>
+    </div>
+    <h2 class="chapter-title">汉风华章</h2>
+    <p class="chapter-subtitle">
+      以玉护永生，以灯净烟尘<br>
+      大汉四百年，厚重如山
+    </p>
+    <div class="photo-grid">
+      <div class="photo-wrap span-3" onclick="openLightbox(this)" data-src="IMG_015.jpg" data-caption="金缕玉衣 · 汉代">
+        <img src="IMG_015.jpg" alt="金缕玉衣" loading="lazy" style="aspect-ratio:16/9;">
+        <span class="photo-hint">点击大图</span>
+        <div class="photo-caption">
+          <div class="caption-title">金缕玉衣</div>
+          <div class="caption-desc">数千玉片以金丝编缀，汉代"永生崇拜"的极致体现。唯有天子方可享此殊荣</div>
+        </div>
+      </div>
+      <div class="photo-wrap" onclick="openLightbox(this)" data-src="IMG_016.jpg" data-caption="西汉彩绘雁鱼青铜灯">
+        <img src="IMG_016.jpg" alt="雁鱼灯" loading="lazy">
+        <span class="photo-hint">点击大图</span>
+        <div class="photo-caption">
+          <div class="caption-title">雁鱼灯</div>
+          <div class="caption-desc">油烟经雁颈导入水腹过滤，比欧洲环保设计早千年</div>
+        </div>
+      </div>
+      <div class="photo-wrap" onclick="openLightbox(this)" data-src="IMG_017.jpg" data-caption="东汉庖厨侍女陶俑">
+        <img src="IMG_017.jpg" alt="庖厨侍女" loading="lazy">
+        <span class="photo-hint">点击大图</span>
+        <div class="photo-caption">
+          <div class="caption-title">庖厨侍女</div>
+          <div class="caption-desc">侍女端盘、厨师切菜、女佣捣米，"事死如事生"的汉代日常</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 伍 · 时光缩影（特别间章） -->
+  <section class="chapter interlude">
+    <div class="chapter-meta">
+      <span class="chapter-num">伍</span>
+      <div class="chapter-line"></div>
+    </div>
+    <h2 class="chapter-title">时光缩影</h2>
+    <p class="chapter-subtitle">
+      两千年前的文物与两岁的眼神对视<br>
+      这一刻，传承正在发生
+    </p>
+    <div class="photo-single">
+      <div class="photo-wrap auto" onclick="openLightbox(this)" data-src="IMG_018.jpg" data-caption="博物馆里的小朋友">
+        <img src="IMG_018.jpg" alt="博物馆里的小朋友" loading="lazy" style="aspect-ratio:auto;object-fit:contain;max-height:480px;">
+        <span class="photo-hint">点击大图</span>
+        <div class="photo-caption">
+          <div class="caption-title">博物馆里的小朋友</div>
+          <div class="caption-desc">孩子们趴在展柜前，手指着文物——博物馆就是最好的第二课堂</div>
+        </div>
+      </div>
+    </div>
+    <div class="quote">
+      <p class="quote-text">五千年后，还会有新的孩子来到这座博物馆，<br>看着这些文物，露出同样好奇的眼神。<br>文明的薪火，就是这样一代一代传下去的。</p>
+      <p class="quote-source">——《国博参观记》</p>
+    </div>
+  </section>
+
+  <!-- 陆 · 汉砖汉俑 -->
+  <section class="chapter">
+    <div class="chapter-meta">
+      <span class="chapter-num">陆</span>
+      <div class="chapter-line"></div>
+    </div>
+    <h2 class="chapter-title">汉砖汉俑</h2>
+    <p class="chapter-subtitle">
+      画像砖上是生活的全景，说唱俑里有不朽的笑容<br>
+      两千年后，这笑依然动人
+    </p>
+    <div class="photo-grid">
+      <div class="photo-wrap" onclick="openLightbox(this)" data-src="IMG_019.jpg" data-caption="绿釉陶水亭 · 东汉">
+        <img src="IMG_019.jpg" alt="绿釉陶水亭" loading="lazy">
+        <span class="photo-hint">点击大图</span>
+        <div class="photo-caption">
+          <div class="caption-title">绿釉水亭</div>
+          <div class="caption-desc">两层亭阁，斗拱雏形，汉代建筑的微缩模型</div>
+        </div>
+      </div>
+      <div class="photo-wrap" onclick="openLightbox(this)" data-src="IMG_020.jpg" data-caption="东汉狩猎生产图画像砖">
+        <img src="IMG_020.jpg" alt="狩猎画像砖" loading="lazy">
+        <span class="photo-hint">点击大图</span>
+        <div class="photo-caption">
+          <div class="caption-title">狩猎画像砖</div>
+          <div class="caption-desc">上狩猎下劳作，浅浮雕里的汉代众生相</div>
+        </div>
+      </div>
+      <div class="photo-wrap" onclick="openLightbox(this)" data-src="IMG_021.jpg" data-caption="汉代平索戏车画像砖">
+        <img src="IMG_021.jpg" alt="平索戏车" loading="lazy">
+        <span class="photo-hint">点击大图</span>
+        <div class="photo-caption">
+          <div class="caption-title">平索戏车</div>
+          <div class="caption-desc">车上立竿、索上翻腾，汉代百戏的惊险瞬间</div>
+        </div>
+      </div>
+      <div class="photo-wrap" onclick="openLightbox(this)" data-src="IMG_022.jpg" data-caption="东汉击鼓说唱俑">
+        <img src="IMG_022.jpg" alt="击鼓说唱俑" loading="lazy">
+        <span class="photo-hint">点击大图</span>
+        <div class="photo-caption">
+          <div class="caption-title">击鼓说唱俑</div>
+          <div class="caption-desc">"汉代第一名俑"，国博镇馆之宝，两千年前的脱口秀</div>
+        </div>
+      </div>
+      <div class="photo-wrap" onclick="openLightbox(this)" data-src="IMG_023.jpg" data-caption="东汉红陶击鼓说唱俑">
+        <img src="IMG_023.jpg" alt="红陶说唱俑" loading="lazy">
+        <span class="photo-hint">点击大图</span>
+        <div class="photo-caption">
+          <div class="caption-title">红陶说唱俑</div>
+          <div class="caption-desc">眯眼咧嘴，讲到精彩处的另一位俳优艺人</div>
+        </div>
+      </div>
+      <div class="photo-wrap" onclick="openLightbox(this)" data-src="IMG_024.jpg" data-caption="西汉贮贝器 · 古滇国">
+        <img src="IMG_024.jpg" alt="贮贝器" loading="lazy">
+        <span class="photo-hint">点击大图</span>
+        <div class="photo-caption">
+          <div class="caption-title">贮贝器</div>
+          <div class="caption-desc">没有文字的滇人把历史"刻"在器盖上，立体的史书</div>
+        </div>
+      </div>
+    </div>
+    <div class="quote">
+      <p class="quote-text">这种信念，荒诞而动人。</p>
+      <p class="quote-source">——《国博参观记》· 论"事死如事生"</p>
+    </div>
+  </section>
+
+  <!-- 柒 · 魏晋风骨 -->
+  <section class="chapter">
+    <div class="chapter-meta">
+      <span class="chapter-num">柒</span>
+      <div class="chapter-line"></div>
+    </div>
+    <h2 class="chapter-title">魏晋风骨</h2>
+    <p class="chapter-subtitle">
+      铁骑与莲花并存的时代<br>
+      甲骑具装是乱世的力量，青瓷莲花是信仰的温柔
+    </p>
+    <div class="photo-grid">
+      <div class="photo-wrap" onclick="openLightbox(this)" data-src="IMG_025.jpg" data-caption="北朝陶俑阵列">
+        <img src="IMG_025.jpg" alt="北朝陶俑" loading="lazy">
+        <span class="photo-hint">点击大图</span>
+        <div class="photo-caption">
+          <div class="caption-title">北朝陶俑阵列</div>
+          <div class="caption-desc">甲骑具装、文武列队，胡汉融合的乱世铁阵</div>
+        </div>
+      </div>
+      <div class="photo-wrap" onclick="openLightbox(this)" data-src="IMG_026.jpg" data-caption="三国吴 · 青瓷羊形烛台">
+        <img src="IMG_026.jpg" alt="青瓷羊烛台" loading="lazy">
+        <span class="photo-hint">点击大图</span>
+        <div class="photo-caption">
+          <div class="caption-title">青瓷羊烛台</div>
+          <div class="caption-desc">羊即"祥"，南京出土的六朝青瓷名品</div>
+        </div>
+      </div>
+      <div class="photo-wrap" onclick="openLightbox(this)" data-src="IMG_027.jpg" data-caption="北朝青瓷莲花尊">
+        <img src="IMG_027.jpg" alt="莲花尊" loading="lazy">
+        <span class="photo-hint">点击大图</span>
+        <div class="photo-caption">
+          <div class="caption-title">莲花尊</div>
+          <div class="caption-desc">"青瓷之王"，层层莲瓣绽放，北朝佛教艺术的巅峰</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 捌 · 大唐气象 -->
+  <section class="chapter">
+    <div class="chapter-meta">
+      <span class="chapter-num">捌</span>
+      <div class="chapter-line"></div>
+    </div>
+    <h2 class="chapter-title">大唐气象</h2>
+    <p class="chapter-subtitle">
+      驼铃声里胡旋舞，万国衣冠拜冕旒<br>
+      一个自信到骨子里的时代
+    </p>
+    <div class="photo-grid">
+      <div class="photo-wrap span-3" onclick="openLightbox(this)" data-src="IMG_028.jpg" data-caption="唐三彩骆驼载乐俑">
+        <img src="IMG_028.jpg" alt="骆驼载乐俑" loading="lazy" style="aspect-ratio:16/9;">
+        <span class="photo-hint">点击大图</span>
+        <div class="photo-caption">
+          <div class="caption-title">骆驼载乐俑</div>
+          <div class="caption-desc">驼背上的丝路乐团，琵琶箜篌笛声里的盛唐气象</div>
+        </div>
+      </div>
+      <div class="photo-wrap" onclick="openLightbox(this)" data-src="IMG_029.jpg" data-caption="五代后梁 · 彩绘浮雕武士石刻">
+        <img src="IMG_029.jpg" alt="武士石刻" loading="lazy">
+        <span class="photo-hint">点击大图</span>
+        <div class="photo-caption">
+          <div class="caption-title">武士石刻</div>
+          <div class="caption-desc">头顶神鸟足踏走兽，中国首件成功追索回国的文物</div>
+        </div>
+      </div>
+      <div class="photo-wrap" onclick="openLightbox(this)" data-src="IMG_030.jpg" data-caption="唐三彩侍女俑">
+        <img src="IMG_030.jpg" alt="侍女俑" loading="lazy">
+        <span class="photo-hint">点击大图</span>
+        <div class="photo-caption">
+          <div class="caption-title">侍女俑</div>
+          <div class="caption-desc">丰腴圆润、开放自信，盛唐女性的审美风尚</div>
+        </div>
+      </div>
+      <div class="photo-wrap" onclick="openLightbox(this)" data-src="IMG_031.jpg" data-caption="唐三彩镇墓兽">
+        <img src="IMG_031.jpg" alt="镇墓兽" loading="lazy">
+        <span class="photo-hint">点击大图</span>
+        <div class="photo-caption">
+          <div class="caption-title">镇墓兽</div>
+          <div class="caption-desc">火焰冠、圆睁目，唐人以威猛守护亡者安宁</div>
+        </div>
+      </div>
+    </div>
+    <div class="photo-single">
+      <div class="photo-wrap" onclick="openLightbox(this)" data-src="IMG_032.jpg" data-caption="唐三彩陶马">
+        <img src="IMG_032.jpg" alt="陶马" loading="lazy">
+        <span class="photo-hint">点击大图</span>
+        <div class="photo-caption">
+          <div class="caption-title">三彩陶马</div>
+          <div class="caption-desc">白釉绿花，昂首挺胸——马是大唐国力的象征</div>
+        </div>
+      </div>
+    </div>
+    <div class="quote">
+      <p class="quote-text">九天阊阖开宫殿，万国衣冠拜冕旒。</p>
+      <p class="quote-source">——王维《和贾舍人早朝大明宫之作》</p>
+    </div>
+  </section>
+
+  <!-- 玖 · 宋元风雅至清宫余韵 -->
+  <section class="chapter">
+    <div class="chapter-meta">
+      <span class="chapter-num">玖</span>
+      <div class="chapter-line"></div>
+    </div>
+    <h2 class="chapter-title">宋元风雅至清宫余韵</h2>
+    <p class="chapter-subtitle">
+      入窑一色出窑万彩，从宋人的素雅<br>
+      到乾隆的繁华，最后凝成一座天球仪的沉默注脚
+    </p>
+    <div class="photo-grid">
+      <div class="photo-wrap" onclick="openLightbox(this)" data-src="IMG_033.jpg" data-caption="水月观音金铜造像 · 宋元">
+        <img src="IMG_033.jpg" alt="水月观音" loading="lazy">
+        <span class="photo-hint">点击大图</span>
+        <div class="photo-caption">
+          <div class="caption-title">水月观音</div>
+          <div class="caption-desc">游戏坐姿、宝冠璎珞，佛教中国化的柔美典范</div>
+        </div>
+      </div>
+      <div class="photo-wrap" onclick="openLightbox(this)" data-src="IMG_034.jpg" data-caption="钧窑玫瑰紫釉花盆 · 宋代">
+        <img src="IMG_034.jpg" alt="钧窑花盆" loading="lazy">
+        <span class="photo-hint">点击大图</span>
+        <div class="photo-caption">
+          <div class="caption-title">钧窑花盆</div>
+          <div class="caption-desc">窑变万彩，宋代五大名窑的天工之作</div>
+        </div>
+      </div>
+      <div class="photo-wrap" onclick="openLightbox(this)" data-src="IMG_035.jpg" data-caption="元代铜壶滴漏">
+        <img src="IMG_035.jpg" alt="铜壶滴漏" loading="lazy">
+        <span class="photo-hint">点击大图</span>
+        <div class="photo-caption">
+          <div class="caption-title">铜壶滴漏</div>
+          <div class="caption-desc">四级漏壶，流体力学计时，为广州报时数百年</div>
+        </div>
+      </div>
+      <div class="photo-wrap" onclick="openLightbox(this)" data-src="IMG_036.jpg" data-caption="明代斗彩瓷器">
+        <img src="IMG_036.jpg" alt="斗彩瓷" loading="lazy">
+        <span class="photo-hint">点击大图</span>
+        <div class="photo-caption">
+          <div class="caption-title">斗彩瓷</div>
+          <div class="caption-desc">釉下青花勾勒，釉上五彩争艳，明代官窑极技</div>
+        </div>
+      </div>
+      <div class="photo-wrap" onclick="openLightbox(this)" data-src="IMG_037.jpg" data-caption="清代皇帝之宝玉印">
+        <img src="IMG_037.jpg" alt="皇帝之宝" loading="lazy">
+        <span class="photo-hint">点击大图</span>
+        <div class="photo-caption">
+          <div class="caption-title">皇帝之宝</div>
+          <div class="caption-desc">碧玉交龙纽，满汉合璧，清二十五宝之一</div>
+        </div>
+      </div>
+      <div class="photo-wrap" onclick="openLightbox(this)" data-src="IMG_038.jpg" data-caption="霁蓝釉金彩海晏河清尊 · 清乾隆">
+        <img src="IMG_038.jpg" alt="海晏河清尊" loading="lazy">
+        <span class="photo-hint">点击大图</span>
+        <div class="photo-caption">
+          <div class="caption-title">海晏河清尊</div>
+          <div class="caption-desc">霁蓝如海、白燕衔祥，圆明园海晏堂的御制重器</div>
+        </div>
+      </div>
+      <div class="photo-wrap" onclick="openLightbox(this)" data-src="IMG_039.jpg" data-caption="粉彩镂空转心瓶 · 清乾隆">
+        <img src="IMG_039.jpg" alt="转心瓶" loading="lazy">
+        <span class="photo-hint">点击大图</span>
+        <div class="photo-caption">
+          <div class="caption-title">转心瓶</div>
+          <div class="caption-desc">"瓷中之王"，内胆可转、外瓶镂空，清瓷最高成就</div>
+        </div>
+      </div>
+      <div class="photo-wrap" onclick="openLightbox(this)" data-src="IMG_040.jpg" data-caption="天球仪 · 清道光十年">
+        <img src="IMG_040.jpg" alt="天球仪" loading="lazy">
+        <span class="photo-hint">点击大图</span>
+        <div class="photo-caption">
+          <div class="caption-title">天球仪</div>
+          <div class="caption-desc">发条驱动、星图自转。鸦片战争前十年，帝国黄昏的精致注脚</div>
+        </div>
+      </div>
+    </div>
+    <div class="quote">
+      <p class="quote-text">1830年，距离鸦片战争还有十年。清朝还在最后的辉煌之中，但已经在悄然衰落。<br>这件天球仪，是中华帝国黄昏时分的一件精致注脚。</p>
+      <p class="quote-source">——《国博参观记》</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>清明 · 中国国家博物馆 · 四十五件文物</p>
+    <a class="footer-back" href="../">返回旅程首页</a>
+  </footer>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <span class="lightbox-close" onclick="closeLightbox()">&#10005;</span>
+    <span class="lightbox-nav lightbox-prev" onclick="navLightbox(-1)">&#8249;</span>
+    <span class="lightbox-nav lightbox-next" onclick="navLightbox(1)">&#8250;</span>
+    <img id="lightbox-img" src="" alt="大图">
+    <div class="lightbox-caption" id="lightbox-caption"></div>
+  </div>
+
+  <script>
+    // Collect all photo wraps for navigation
+    var allPhotos = Array.prototype.slice.call(document.querySelectorAll('.photo-wrap'));
+    var currentIndex = -1;
+
+    function openLightbox(el) {
+      var src = el.getAttribute('data-src');
+      var caption = el.getAttribute('data-caption') || '';
+      document.getElementById('lightbox-img').src = src;
+      document.getElementById('lightbox-caption').textContent = caption;
+      document.getElementById('lightbox').classList.add('active');
+      document.body.style.overflow = 'hidden';
+      currentIndex = allPhotos.indexOf(el);
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('active');
+      document.body.style.overflow = '';
+      currentIndex = -1;
+    }
+
+    function navLightbox(dir) {
+      if (currentIndex < 0) return;
+      currentIndex = (currentIndex + dir + allPhotos.length) % allPhotos.length;
+      var el = allPhotos[currentIndex];
+      var src = el.getAttribute('data-src');
+      var caption = el.getAttribute('data-caption') || '';
+      document.getElementById('lightbox-img').src = src;
+      document.getElementById('lightbox-caption').textContent = caption;
+    }
+
+    // Close on background click (not on nav buttons or image)
+    document.getElementById('lightbox').addEventListener('click', function(e) {
+      if (e.target === this) {
+        closeLightbox();
+      }
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if (!document.getElementById('lightbox').classList.contains('active')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') navLightbox(-1);
+      if (e.key === 'ArrowRight') navLightbox(1);
+    });
+
+    // Scroll-reveal animation
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.08 });
+
+    document.querySelectorAll('.chapter').forEach(function(ch) {
+      observer.observe(ch);
+    });
+  </script>
+
+</body>
+</html>
