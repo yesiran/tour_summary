@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>420美国西海岸之旅 · 首次踏上新大陆</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #faf8f5;
+    color: #3d2e1e;
+    font-family: "Noto Serif SC", "Source Han Serif SC", "PingFang SC", serif;
+    line-height: 1.9;
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 60px 24px 100px;
+  }
+
+  a { color: #8b6f47; text-decoration: none; }
+  a:hover { color: #6b5233; }
+
+  .back {
+    display: inline-block;
+    font-size: 0.85rem;
+    color: #9a8b78;
+    margin-bottom: 40px;
+    letter-spacing: 0.1em;
+    transition: color 0.2s;
+  }
+  .back:hover { color: #6b5233; }
+
+  header {
+    text-align: center;
+    margin-bottom: 56px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid #e8e0d4;
+  }
+
+  h1 {
+    font-size: 2rem;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    color: #2c1f14;
+    margin-bottom: 12px;
+  }
+
+  .date {
+    font-size: 0.85rem;
+    color: #9a8b78;
+    letter-spacing: 0.2em;
+  }
+
+  .lead {
+    font-size: 1.05rem;
+    color: #5c4a36;
+    margin: 32px 0 0;
+    line-height: 2;
+    text-align: center;
+  }
+
+  .section {
+    margin: 56px 0;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .section.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .section-title {
+    font-size: 1.3rem;
+    font-weight: 400;
+    letter-spacing: 0.25em;
+    color: #8b6f47;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .section-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #e0d5c7;
+  }
+
+  /* Timeline */
+  .timeline {
+    position: relative;
+    padding-left: 28px;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 6px;
+    top: 8px;
+    bottom: 8px;
+    width: 1px;
+    background: #ddd5c8;
+  }
+
+  .day {
+    position: relative;
+    margin-bottom: 28px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid #f0ebe4;
+  }
+
+  .day:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+  }
+
+  .day::before {
+    content: '';
+    position: absolute;
+    left: -25px;
+    top: 10px;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #c4a97d;
+    border: 2px solid #faf8f5;
+  }
+
+  .day-date {
+    font-size: 0.82rem;
+    color: #b8a690;
+    letter-spacing: 0.15em;
+    margin-bottom: 4px;
+  }
+
+  .day-title {
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: #2c1f14;
+    margin-bottom: 6px;
+  }
+
+  .day-desc {
+    font-size: 0.92rem;
+    color: #6b5c4a;
+    line-height: 1.8;
+  }
+
+  .day-stay {
+    font-size: 0.8rem;
+    color: #b8a690;
+    margin-top: 8px;
+    font-style: italic;
+  }
+
+  .tag {
+    display: inline-block;
+    font-size: 0.72rem;
+    background: #f3ede4;
+    color: #8b7a65;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-right: 4px;
+    margin-top: 6px;
+  }
+
+  /* Cost table */
+  .cost-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    margin-top: 16px;
+  }
+
+  .cost-table th {
+    text-align: left;
+    font-weight: 400;
+    color: #8b6f47;
+    padding: 10px 0;
+    border-bottom: 1px solid #e0d5c7;
+    font-size: 0.82rem;
+    letter-spacing: 0.1em;
+  }
+
+  .cost-table td {
+    padding: 10px 0;
+    border-bottom: 1px solid #f0ebe4;
+    color: #5c4a36;
+  }
+
+  .cost-table td:last-child {
+    text-align: right;
+    font-family: "SF Mono", "Fira Code", monospace;
+    color: #8b6f47;
+  }
+
+  .cost-table tr.total td {
+    font-weight: 600;
+    color: #2c1f14;
+    border-bottom: 2px solid #c4a97d;
+    padding-top: 14px;
+  }
+
+  .cost-table tr.total td:last-child {
+    color: #2c1f14;
+    font-size: 1.05rem;
+  }
+
+  /* Route map */
+  .route {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 24px 0 32px;
+    font-size: 0.95rem;
+    color: #8b6f47;
+  }
+
+  .route-city {
+    background: #fff;
+    padding: 8px 16px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    font-weight: 500;
+    color: #3d2e1e;
+  }
+
+  .route-arrow {
+    color: #c4a97d;
+    font-size: 1.1rem;
+  }
+
+  /* Photo placeholder */
+  .photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 12px;
+    margin-top: 20px;
+  }
+
+  .photo-placeholder {
+    background: #f0ebe4;
+    border-radius: 8px;
+    aspect-ratio: 4/3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #b8a690;
+    font-size: 0.85rem;
+    border: 1px dashed #ddd5c8;
+  }
+
+  /* Journal placeholder */
+  .journal-placeholder {
+    background: #fff;
+    border-radius: 12px;
+    padding: 32px;
+    text-align: center;
+    color: #b8a690;
+    font-size: 0.95rem;
+    line-height: 1.8;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+    margin-top: 20px;
+  }
+
+  footer {
+    text-align: center;
+    margin-top: 80px;
+    padding-top: 40px;
+    border-top: 1px solid #e8e0d4;
+    font-size: 0.82rem;
+    color: #b8a690;
+    letter-spacing: 0.2em;
+  }
+</style>
+</head>
+<body>
+
+<a href="../" class="back">&larr; 返回旅程列表</a>
+
+<header>
+  <h1>420 美国西海岸之旅</h1>
+  <p class="date">2026.04.18 - 05.07 &nbsp;|&nbsp; 首尔 · 西雅图 · 旧金山 · 优胜美地 · 一号公路 · 洛杉矶</p>
+  <p class="lead">第一次踏上美国的土地<br>带着母亲和琳，从太平洋西岸到东岸的雪山<br>从硅谷的代码圣殿到Big Sur的悬崖公路<br>20天，4座城，2500英里</p>
+</header>
+
+<div class="route">
+  <span class="route-city">北京</span>
+  <span class="route-arrow">&rarr;</span>
+  <span class="route-city">首尔</span>
+  <span class="route-arrow">&rarr;</span>
+  <span class="route-city">西雅图</span>
+  <span class="route-arrow">&rarr;</span>
+  <span class="route-city">旧金山</span>
+  <span class="route-arrow">&rarr;</span>
+  <span class="route-city">优胜美地</span>
+  <span class="route-arrow">&rarr;</span>
+  <span class="route-city">一号公路</span>
+  <span class="route-arrow">&rarr;</span>
+  <span class="route-city">洛杉矶</span>
+  <span class="route-arrow">&rarr;</span>
+  <span class="route-city">北京</span>
+</div>
+
+<!-- ============ 行程时间线 ============ -->
+
+<div class="section">
+  <div class="section-title">壹 · 首尔</div>
+  <div class="timeline">
+    <div class="day">
+      <div class="day-date">4/18 周六</div>
+      <div class="day-title">北京 &rarr; 首尔</div>
+      <div class="day-desc">南航CZ317，大兴机场09:20起飞，金浦机场12:25到达。旅途的起点。</div>
+      <div class="day-stay">住 ENA Suite Hotel Namdaemun</div>
+    </div>
+    <div class="day">
+      <div class="day-date">4/19 周日</div>
+      <div class="day-title">首尔自由活动</div>
+      <div class="day-desc">在首尔的最后一天，为美国之行养精蓄锐。</div>
+      <div class="day-stay">住 ENA Suite Hotel</div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">贰 · 西雅图</div>
+  <div class="timeline">
+    <div class="day">
+      <div class="day-date">4/20 周日</div>
+      <div class="day-title">首尔 &rarr; 西雅图</div>
+      <div class="day-desc">Air Canada经温哥华转机，19:20到达SeaTac。机场取车，夜色中驶向Bellevue。第一次踏上美国的土地。</div>
+      <div class="day-stay">住 Fairfield Inn Bellevue</div>
+    </div>
+    <div class="day">
+      <div class="day-date">4/21 周一</div>
+      <div class="day-title">倒时差 · 与老友重逢</div>
+      <div class="day-desc">身体还在首尔时间。慢慢醒来，去看Snoqualmie Falls瀑布，或去流氓的TikTok办公室转转。晚上和大学好友流氓吃饭叙旧。</div>
+      <div class="day-stay">住 Fairfield Inn Bellevue</div>
+      <span class="tag">流氓</span><span class="tag">Bellevue</span>
+    </div>
+    <div class="day">
+      <div class="day-date">4/22 周二</div>
+      <div class="day-title">Olympic国家公园 · 温带雨林</div>
+      <div class="day-desc">驱车3.5小时抵达Olympic半岛。下午走进Hoh Rain Forest——千年巨树挂满苔藓，像宫崎骏的电影。傍晚到La Push的First Beach，看太平洋上的日落沉入海蚀柱之间。</div>
+      <div class="day-stay">住 Quileute Oceanside Resort 海景豪华小木屋</div>
+      <span class="tag">温带雨林</span><span class="tag">太平洋日落</span><span class="tag">原住民部落</span>
+    </div>
+    <div class="day">
+      <div class="day-date">4/23 周三</div>
+      <div class="day-title">太平洋的海滩</div>
+      <div class="day-desc">Rialto Beach的漂木与礁石，Ruby Beach的另一种荒凉之美。第二场太平洋日落。</div>
+      <div class="day-stay">住 Quileute Oceanside Resort</div>
+      <span class="tag">Rialto Beach</span><span class="tag">Ruby Beach</span>
+    </div>
+    <div class="day">
+      <div class="day-date">4/24 周四</div>
+      <div class="day-title">西雅图 &rarr; 旧金山</div>
+      <div class="day-desc">返回西雅图。Space Needle俯瞰城市，再约流氓吃一顿告别饭。20:05的Alaska航班飞往旧金山，22:28降落在SFO。凯迪拉克XT5在机场等着我们。</div>
+      <span class="tag">Space Needle</span><span class="tag">Alaska 528</span>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">叁 · 旧金山 · 硅谷</div>
+  <div class="timeline">
+    <div class="day">
+      <div class="day-date">4/25 周五</div>
+      <div class="day-title">渔人码头 · 恶魔岛Night Tour</div>
+      <div class="day-desc">白天在渔人码头吃clam chowder，Chinatown给母亲找一顿地道早茶，坐一次百年Cable Car。傍晚17:55从Pier 33登船，夜游恶魔岛——戴着耳机在黑暗的牢房里听前囚犯讲述越狱故事。回程船上看旧金山夜景。</div>
+      <div class="day-stay">住 Hotel Nikko San Francisco</div>
+      <span class="tag">恶魔岛</span><span class="tag">Cable Car</span><span class="tag">渔人码头</span>
+    </div>
+    <div class="day">
+      <div class="day-date">4/26 周六</div>
+      <div class="day-title">硅谷朝圣</div>
+      <div class="day-desc">Stanford大学的Main Quad和Memorial Church。Apple Park Visitor Center的AR体验。Google园区的Android雕像。Computer History Museum里从打孔卡到AI的计算机发展史。作为AI产品人的一次朝圣。</div>
+      <div class="day-stay">住 Hotel Nikko SF</div>
+      <span class="tag">Stanford</span><span class="tag">Apple</span><span class="tag">Google</span>
+    </div>
+    <div class="day">
+      <div class="day-date">4/27 周日</div>
+      <div class="day-title">Napa Valley · 加州酒庄</div>
+      <div class="day-desc">北上1.5小时到Napa Valley，在阳光下的葡萄园品酒。加州的阳光、山谷、和一杯好酒。</div>
+      <div class="day-stay">住 Hotel Nikko SF</div>
+      <span class="tag">Napa</span><span class="tag">品酒</span>
+    </div>
+    <div class="day">
+      <div class="day-date">4/28 周一</div>
+      <div class="day-title">金门大桥 &rarr; 优胜美地</div>
+      <div class="day-desc">清晨开车过金门大桥，在Battery Spencer拍下迷雾中的大桥。然后向东，3.5小时穿过加州内陆，驶入Sierra Nevada山脉。下午到达Yosemite Valley——Tunnel View的第一眼，让人屏息。</div>
+      <div class="day-stay">住 Yosemite View Lodge</div>
+      <span class="tag">金门大桥</span><span class="tag">Tunnel View</span>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">肆 · 优胜美地</div>
+  <div class="timeline">
+    <div class="day">
+      <div class="day-date">4/28-29</div>
+      <div class="day-title">Yosemite National Park</div>
+      <div class="day-desc">4月底的优胜美地，雪水融化灌入瀑布，Yosemite Falls震耳欲聋。Bridalveil Fall的水雾扑面而来。El Capitan的花岗岩壁面在晨光中泛金。Mist Trail上攀向Vernal Fall，台阶湿滑而壮美。Mirror Lake倒映Half Dome。这是地球上最壮观的山谷之一。</div>
+      <div class="day-stay">住 Yosemite View Lodge（2晚）</div>
+      <span class="tag">Yosemite Falls</span><span class="tag">El Capitan</span><span class="tag">Half Dome</span><span class="tag">Mist Trail</span>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">伍 · 一号公路</div>
+  <div class="timeline">
+    <div class="day">
+      <div class="day-date">4/30 周三</div>
+      <div class="day-title">Yosemite &rarr; Monterey</div>
+      <div class="day-desc">告别雪山，走内陆公路西行到海边的Monterey。入住洲际酒店，傍晚步行到隔壁的Monterey Bay Aquarium——巨型海藻森林缸前，母亲看得入迷。</div>
+      <div class="day-stay">住 InterContinental The Clement Monterey</div>
+      <span class="tag">水族馆</span><span class="tag">Monterey</span>
+    </div>
+    <div class="day">
+      <div class="day-date">5/1 周四</div>
+      <div class="day-title">17-Mile Drive · Big Sur &rarr; 洛杉矶</div>
+      <div class="day-desc">沿着太平洋海岸线南下。17-Mile Drive的豪宅与柏树。Carmel小镇的画廊和咖啡。然后进入Big Sur——一侧是垂直的悬崖，一侧是无尽的太平洋。Bixby Bridge在迷雾中若隐若现。这是全球最壮观的海岸公路。傍晚抵达洛杉矶。</div>
+      <div class="day-stay">住 Santa Monica Proper Hotel</div>
+      <span class="tag">Big Sur</span><span class="tag">Bixby Bridge</span><span class="tag">17-Mile Drive</span>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">陆 · 洛杉矶</div>
+  <div class="timeline">
+    <div class="day">
+      <div class="day-date">5/2 周五</div>
+      <div class="day-title">Universal Studios Hollywood</div>
+      <div class="day-desc">环球影城的一整天。Studio Tour穿越真实的电影布景，哈利波特的魔法世界，变形金刚的3D冒险。母亲也玩得开心。</div>
+      <div class="day-stay">住 Santa Monica Proper Hotel</div>
+      <span class="tag">环球影城</span>
+    </div>
+    <div class="day">
+      <div class="day-date">5/3 周六</div>
+      <div class="day-title">洛杉矶市内</div>
+      <div class="day-desc">Getty Center的建筑与艺术。傍晚开上Griffith天文台，俯瞰洛杉矶的万家灯火和远处的Hollywood标志。Santa Monica Beach的日落。</div>
+      <div class="day-stay">住 Santa Monica Proper Hotel</div>
+      <span class="tag">Getty Center</span><span class="tag">Griffith天文台</span><span class="tag">日落</span>
+    </div>
+    <div class="day">
+      <div class="day-date">5/4 周日</div>
+      <div class="day-title">Disneyland</div>
+      <div class="day-desc">在美国旅行的最后一天，把它交给童话。Disneyland Park + California Adventure，Park Hopper通票两个园区自由穿梭。晚上8点关园，开车去机场酒店。</div>
+      <div class="day-stay">住 Hyatt Regency LAX</div>
+      <span class="tag">迪士尼</span><span class="tag">Park Hopper</span>
+    </div>
+    <div class="day">
+      <div class="day-date">5/5 周一</div>
+      <div class="day-title">回家</div>
+      <div class="day-desc">凌晨6:35，LAX起飞。经温哥华转机，5月6日16:55落地北京。母亲留在美国继续她的旅程。20天，从太平洋的这一边到那一边，再回来。</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ 费用 ============ -->
+
+<div class="section">
+  <div class="section-title">柒 · 费用</div>
+
+  <table class="cost-table">
+    <tr><th>类别</th><th style="text-align:right">金额</th></tr>
+    <tr><td>机票（4段）</td><td>¥15,412</td></tr>
+    <tr><td>住宿（16晚）</td><td>¥41,165</td></tr>
+    <tr><td>租车（16天）</td><td>¥10,141</td></tr>
+    <tr><td>门票 / 活动</td><td>¥10,607</td></tr>
+    <tr class="total"><td>已确认总计</td><td>¥77,325</td></tr>
+  </table>
+
+  <p style="font-size: 0.82rem; color: #b8a690; margin-top: 16px; text-align: center;">
+    汇率 1 USD = 6.83 CNY &nbsp;|&nbsp; 预估含餐饮油费停车约 ¥90,000-95,000 &nbsp;|&nbsp; 人均约 ¥30,000-32,000
+  </p>
+</div>
+
+<!-- ============ 游记占位 ============ -->
+
+<div class="section">
+  <div class="section-title">捌 · 游记</div>
+  <div class="journal-placeholder">
+    旅程尚未开始<br>
+    这里将记录路上的文字、感悟与故事<br>
+    <span style="font-size: 0.82rem; color: #ccc;">待旅途归来后更新</span>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">玖 · 影像</div>
+  <div class="photo-grid">
+    <div class="photo-placeholder">Olympic 温带雨林</div>
+    <div class="photo-placeholder">First Beach 日落</div>
+    <div class="photo-placeholder">恶魔岛夜游</div>
+    <div class="photo-placeholder">Stanford 校园</div>
+    <div class="photo-placeholder">金门大桥晨雾</div>
+    <div class="photo-placeholder">Yosemite Falls</div>
+    <div class="photo-placeholder">Big Sur 悬崖公路</div>
+    <div class="photo-placeholder">Santa Monica 日落</div>
+  </div>
+  <p style="font-size: 0.82rem; color: #ccc; text-align: center; margin-top: 16px;">照片将在旅途中陆续更新</p>
+</div>
+
+<footer>
+  一叶琳旅程 &nbsp;·&nbsp; 420美国西海岸之旅 &nbsp;·&nbsp; 2026
+</footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.section').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
