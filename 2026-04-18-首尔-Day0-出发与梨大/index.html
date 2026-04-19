@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>首尔 Day 0 — 出发与梨花女子大学 | 2026年4月18日</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-green: #7c9a6a;
+            --light-green: #e8f0e3;
+            --soft-green: #d4e4c9;
+            --cream: #fafaf8;
+            --warm-white: #fdfcfa;
+            --text-dark: #2c3e2d;
+            --text-medium: #5a6b5c;
+            --text-light: #8a9a8c;
+            --shadow: rgba(124, 154, 106, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            background-color: var(--warm-white);
+            color: var(--text-dark);
+            line-height: 1.8;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(212, 228, 201, 0.4) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(232, 240, 227, 0.5) 0%, transparent 40%);
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            padding: 80px 20px 60px;
+            background: linear-gradient(180deg, var(--light-green) 0%, var(--warm-white) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--soft-green), var(--primary-green), var(--soft-green));
+        }
+
+        .blossom-decoration {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            opacity: 0.7;
+        }
+
+        h1 {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 12px;
+            letter-spacing: 2px;
+        }
+
+        .date {
+            font-size: 1rem;
+            color: var(--text-medium);
+            font-weight: 300;
+            letter-spacing: 4px;
+        }
+
+        .location-badge {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 8px 24px;
+            background: rgba(124, 154, 106, 0.1);
+            border: 1px solid var(--soft-green);
+            border-radius: 30px;
+            font-size: 0.85rem;
+            color: var(--primary-green);
+            letter-spacing: 2px;
+        }
+
+        /* Main Content */
+        main {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Intro Section */
+        .intro {
+            background: var(--cream);
+            padding: 40px;
+            border-radius: 16px;
+            margin-bottom: 60px;
+            border: 1px solid var(--light-green);
+            box-shadow: 0 4px 20px var(--shadow);
+        }
+
+        .intro h2 {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 1.4rem;
+            color: var(--primary-green);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .intro h2::before {
+            content: '🌸';
+        }
+
+        .intro p {
+            color: var(--text-medium);
+            font-size: 1rem;
+            line-height: 2;
+        }
+
+        .itinerary {
+            margin-top: 25px;
+            padding: 20px;
+            background: var(--warm-white);
+            border-radius: 12px;
+            border-left: 3px solid var(--primary-green);
+        }
+
+        .itinerary-item {
+            display: flex;
+            gap: 20px;
+            padding: 12px 0;
+            border-bottom: 1px dashed var(--soft-green);
+        }
+
+        .itinerary-item:last-child {
+            border-bottom: none;
+        }
+
+        .time {
+            font-weight: 500;
+            color: var(--primary-green);
+            min-width: 80px;
+            font-family: 'Noto Serif SC', serif;
+        }
+
+        .event {
+            color: var(--text-medium);
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            margin-bottom: 60px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-header h2 {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 1.6rem;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+        }
+
+        .section-header p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, var(--soft-green), var(--primary-green), var(--soft-green));
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 50px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -36px;
+            top: 5px;
+            width: 14px;
+            height: 14px;
+            background: var(--warm-white);
+            border: 3px solid var(--primary-green);
+            border-radius: 50%;
+        }
+
+        .timeline-time {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 0.9rem;
+            color: var(--primary-green);
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        .timeline-title {
+            font-size: 1.2rem;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        /* Photo Grid */
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .photo-item {
+            position: relative;
+            aspect-ratio: 1;
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            background: var(--light-green);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .photo-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px var(--shadow);
+        }
+
+        .photo-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .photo-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .photo-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 15px 10px 10px;
+            background: linear-gradient(transparent, rgba(44, 62, 45, 0.8));
+            color: white;
+            font-size: 0.8rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .photo-item:hover .photo-caption {
+            opacity: 1;
+        }
+
+        /* Info Cards */
+        .info-section {
+            background: var(--cream);
+            padding: 50px 40px;
+            border-radius: 16px;
+            margin-bottom: 40px;
+            border: 1px solid var(--light-green);
+        }
+
+        .info-section h2 {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 1.5rem;
+            color: var(--primary-green);
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .info-content h3 {
+            font-size: 1.1rem;
+            color: var(--text-dark);
+            margin: 25px 0 12px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--soft-green);
+        }
+
+        .info-content p {
+            color: var(--text-medium);
+            font-size: 0.95rem;
+            line-height: 1.9;
+            margin-bottom: 15px;
+        }
+
+        .highlight-box {
+            background: var(--warm-white);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 4px solid var(--primary-green);
+        }
+
+        .highlight-box h4 {
+            color: var(--primary-green);
+            font-size: 1rem;
+            margin-bottom: 10px;
+        }
+
+        /* Reflection Section */
+        .reflection {
+            background: linear-gradient(135deg, var(--light-green) 0%, var(--cream) 100%);
+            padding: 50px 40px;
+            border-radius: 16px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .reflection::before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            left: 30px;
+            font-family: 'Noto Serif SC', serif;
+            font-size: 6rem;
+            color: var(--primary-green);
+            opacity: 0.2;
+            line-height: 1;
+        }
+
+        .reflection h2 {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 1.4rem;
+            color: var(--text-dark);
+            margin-bottom: 25px;
+        }
+
+        .reflection p {
+            color: var(--text-medium);
+            font-size: 1.05rem;
+            line-height: 2.2;
+            max-width: 700px;
+            margin: 0 auto;
+            font-style: italic;
+        }
+
+        .signature {
+            margin-top: 25px;
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--text-light);
+            font-size: 0.85rem;
+        }
+
+        footer .divider {
+            width: 60px;
+            height: 2px;
+            background: var(--soft-green);
+            margin: 0 auto 20px;
+        }
+
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.92);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .lightbox.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 90%;
+            position: relative;
+        }
+
+        .lightbox-content img {
+            max-width: 100%;
+            max-height: 85vh;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        .lightbox-caption {
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 0.95rem;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 40px;
+            color: white;
+            font-size: 2.5rem;
+            cursor: pointer;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+            z-index: 1001;
+        }
+
+        .lightbox-close:hover {
+            opacity: 1;
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            padding: 20px;
+            opacity: 0.6;
+            transition: opacity 0.3s;
+            user-select: none;
+        }
+
+        .lightbox-nav:hover {
+            opacity: 1;
+        }
+
+        .lightbox-prev {
+            left: 20px;
+        }
+
+        .lightbox-next {
+            right: 20px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.6rem;
+            }
+
+            .intro {
+                padding: 25px;
+            }
+
+            .photo-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+
+            .info-section,
+            .reflection {
+                padding: 30px 25px;
+            }
+
+            .timeline {
+                padding-left: 25px;
+            }
+
+            .timeline-item::before {
+                left: -31px;
+                width: 12px;
+                height: 12px;
+            }
+
+            .lightbox-close {
+                top: 10px;
+                right: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 50px 15px 40px;
+            }
+
+            .photo-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .itinerary-item {
+                flex-direction: column;
+                gap: 5px;
+            }
+
+            .time {
+                min-width: auto;
+            }
+        }
+
+        /* Placeholder style */
+        .photo-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--light-green), var(--soft-green));
+            color: var(--primary-green);
+            font-size: 0.85rem;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .photo-placeholder .icon {
+            font-size: 2rem;
+            margin-bottom: 8px;
+            opacity: 0.6;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="blossom-decoration">🌸</div>
+        <h1>首尔 Day 0 — 出发与梨花女子大学</h1>
+        <div class="date">2026年4月18日</div>
+        <div class="location-badge">北京 ✈️ 首尔</div>
+    </header>
+
+    <main>
+        <!-- 行程概览 -->
+        <section class="intro">
+            <h2>行程概览</h2>
+            <p>春日的首尔，阳光明媚。第一次踏上韩国的土地，带着期待与好奇，从大兴机场起飞，开启这段美好的旅程。</p>
+            
+            <div class="itinerary">
+                <div class="itinerary-item">
+                    <span class="time">09:20</span>
+                    <span class="event">北京大兴机场起飞（中国南方航空 CZ317）</span>
+                </div>
+                <div class="itinerary-item">
+                    <span class="time">12:25</span>
+                    <span class="event">到达金浦机场 T1</span>
+                </div>
+                <div class="itinerary-item">
+                    <span class="time">下午</span>
+                    <span class="event">入住 ENA Suite Hotel Namdaemun（南大门伊娜套房酒店）</span>
+                </div>
+                <div class="itinerary-item">
+                    <span class="time">下午至傍晚</span>
+                    <span class="event">梨花女子大学校园游览 + 梨大女人街</span>
+                </div>
+                <div class="itinerary-item">
+                    <span class="time">晚上</span>
+                    <span class="event">弘大/延南洞逛街、晚餐</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 照片画廊 -->
+        <section class="gallery-section">
+            <div class="section-header">
+                <h2>📷 旅途影像</h2>
+                <p>点击照片查看大图</p>
+            </div>
+
+            <div class="timeline">
+                <!-- 机场出发 -->
+                <div class="timeline-item">
+                    <div class="timeline-time">上午 · 启程</div>
+                    <div class="timeline-title">北京大兴机场</div>
+                    <div class="photo-grid" id="gallery-airport">
+                        <div class="photo-item" data-src="images/airport-01.jpg" data-caption="大兴机场出发">
+                            <div class="photo-placeholder">
+                                <div>
+                                    <div class="icon">✈️</div>
+                                    <div>机场出发</div>
+                                </div>
+                            </div>
+                            <div class="photo-caption">大兴机场出发</div>
+                        </div>
+                        <div class="photo-item" data-src="images/airport-02.jpg" data-caption="候机时光">
+                            <div class="photo-placeholder">
+                                <div>
+                                    <div class="icon">☕</div>
+                                    <div>候机时光</div>
+                                </div>
+                            </div>
+                            <div class="photo-caption">候机时光</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 抵达首尔 -->
+                <div class="timeline-item">
+                    <div class="timeline-time">中午 · 抵达</div>
+                    <div class="timeline-title">金浦机场 & 入住酒店</div>
+                    <div class="photo-grid" id="gallery-arrival">
+                        <div class="photo-item" data-src="images/arrival-01.jpg" data-caption="金浦机场到达">
+                            <div class="photo-placeholder">
+                                <div>
+                                    <div class="icon">🇰🇷</div>
+                                    <div>抵达首尔</div>
+                                </div>
+                            </div>
+                            <div class="photo-caption">金浦机场到达</div>
+                        </div>
+                        <div class="photo-item" data-src="images/hotel-01.jpg" data-caption="南大门伊娜套房酒店">
+                            <div class="photo-placeholder">
+                                <div>
+                                    <div class="icon">🏨</div>
+                                    <div>酒店入住</div>
+                                </div>
+                            </div>
+                            <div class="photo-caption">南大门伊娜套房酒店</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 梨花女子大学 -->
+                <div class="timeline-item">
+                    <div class="timeline-time">下午 · 游览</div>
+                    <div class="timeline-title">梨花女子大学校园</div>
+                    <div class="photo-grid" id="gallery-ewha">
+                        <div class="photo-item" data-src="images/ewha-01.jpg" data-caption="梨花女子大学正门">
+                            <div class="photo-placeholder">
+                                <div>
+                                    <div class="icon">🎓</div>
+                                    <div>梨大正门</div>
+                                </div>
+                            </div>
+                            <div class="photo-caption">梨花女子大学正门</div>
+                        </div>
+                        <div class="photo-item" data-src="images/ewha-02.jpg" data-caption="下沉式图书馆 ECC">
+                            <div class="photo-placeholder">
+                                <div>
+                                    <div class="icon">📚</div>
+                                    <div>ECC图书馆</div>
+                                </div>
+                            </div>
+                            <div class="photo-caption">下沉式图书馆 ECC</div>
+                        </div>
+                        <div class="photo-item" data-src="images/ewha-03.jpg" data-caption="ECC 内部建筑">
+                            <div class="photo-placeholder">
+                                <div>
+                                    <div class="icon">🏛️</div>
+                                    <div>ECC内部</div>
+                                </div>
+                            </div>
+                            <div class="photo-caption">ECC 内部建筑</div>
+                        </div>
+                        <div class="photo-item" data-src="images/ewha-04.jpg" data-caption="校园绿地">
+                            <div class="photo-placeholder">
+                                <div>
+                                    <div class="icon">🌿</div>
+                                    <div>校园绿地</div>
+                                </div>
+                            </div>
+                            <div class="photo-caption">校园绿地</div>
+                        </div>
+                        <div class="photo-item" data-src="images/ewha-05.jpg" data-caption="哥特式建筑">
+                            <div class="photo-placeholder">
+                                <div>
+                                    <div class="icon">⛪</div>
+                                    <div>历史建筑</div>
+                                </div>
+                            </div>
+                            <div class="photo-caption">哥特式建筑</div>
+                        </div>
+                        <div class="photo-item" data-src="images/ewha-06.jpg" data-caption="梨花墙">
+                            <div class="photo-placeholder">
+                                <div>
+                                    <div class="icon">🌸</div>
+                                    <div>梨花墙</div>
+                                </div>
+                            </div>
+                            <div class="photo-caption">梨花墙</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 梨大女人街 -->
+                <div class="timeline-item">
+                    <div class="timeline-time">傍晚 · 购物</div>
+                    <div class="timeline-title">梨大女人街</div>
+                    <div class="photo-grid" id="gallery-shopping">
+                        <div class="photo-item" data-src="images/shopping-01.jpg" data-caption="女人街街景">
+                            <div class="photo-placeholder">
+                                <div>
+                                    <div class="icon">🛍️</div>
+                                    <div>女人街</div>
+                                </div>
+                            </div>
+                            <div class="photo-caption">女人街街景</div>
+                        </div>
+                        <div class="photo-item" data-src="images/shopping-02.jpg" data-caption="街边小店">
+                            <div class="photo-placeholder">
+                                <div>
+                                    <div class="icon">💄</div>
+                                    <div>美妆小店</div>
+                                </div>
+                            </div>
+                            <div class="photo-caption">街边小店</div>
+                        </div>
+                        <div class="photo-item" data-src="images/shopping-03.jpg" data-caption="樱花街道">
+                            <div class="photo-placeholder">
+                                <div>
+                                    <div class="icon">🌸</div>
+                                    <div>樱花街道</div>
+                                </div>
+                            </div>
+                            <div class="photo-caption">樱花街道</div>
+                        </div>
+                        <div class="photo-item" data-src="images/shopping-04.jpg" data-caption="战利品">
+                            <div class="photo-placeholder">
+                                <div>
+                                    <div class="icon">🎁</div>
+                                    <div>今日战利品</div>
+                                </div>
+                            </div>
+                            <div class="photo-caption">战利品</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 弘大夜景 -->
+                <div class="timeline-item">
+                    <div class="timeline-time">晚上 · 夜生活</div>
+                    <div class="timeline-title">弘大 & 延南洞</div>
+                    <div class="photo-grid" id="gallery-hongdae">
+                        <div class="photo-item" data-src="images/hongdae-01.jpg" data-caption="弘大街景">
+                            <div class="photo-placeholder">
+                                <div>
+                                    <div class="icon">🌃</div>
+                                    <div>弘大街景</div>
+                                </div>
+                            </div>
+                            <div class="photo-caption">弘大街景</div>
+                        </div>
+                        <div class="photo-item" data-src="images/hongdae-02.jpg" data-caption="延南洞小巷">
+                            <div class="photo-placeholder">
+                                <div>
+                                    <div class="icon">🍜</div>
+                                    <div>延南洞</div>
+                                </div>
+                            </div>
+                            <div class="photo-caption">延南洞小巷</div>
+                        </div>
+                        <div class="photo-item" data-src="images/hongdae-03.jpg" data-caption="晚餐">
+                            <div class="photo-placeholder">
+                                <div>
+                                    <div class="icon">🥘</div>
+                                    <div>首尔晚餐</div>
+                                </div>
+                            </div>
+                            <div class="photo-caption">晚餐</div>
+                        </div>
+                        <div class="photo-item" data-src="images/hongdae-04.jpg" data-caption="首尔夜色">
+                            <div class="photo-placeholder">
+                                <div>
+                                    <div class="icon">✨</div>
+                                    <div>首尔夜色</div>
+                                </div>
+                            </div>
+                            <div class="photo-caption">首尔夜色</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 梨花女子大学介绍 -->
+        <section class="info-section">
+            <h2>🎓 梨花女子大学</h2>
+            <div class="info-content">
+                <p>梨花女子大学（Ewha Womans University，이화여대）是韩国历史最悠久的女子大学，创立于1886年，也是世界上最大的女子大学。校名取自"梨花"，象征纯洁与高雅。</p>
+
+                <div class="highlight-box">
+                    <h4>🏛️ 下沉式图书馆 ECC</h4>
+                    <p>由法国建筑师 Dominique Perrault 设计的 Campus Complex（ECC）是梨大最具标志性的建筑。建筑主体位于地下，屋顶是绿化草坪，两侧玻璃幕墙将自然光引入室内，创造出独特的空间体验。</p>
+                </div>
+
+                <h3>历史建筑与现代融合</h3>
+                <p>校园内哥特式风格的 Welch-Ryan Auditorium 与常春藤覆盖的石砌建筑交相辉映，四季皆美的校园景观让这里成为首尔最受欢迎的文化景点之一。</p>
+
+                <h3>梨大女人街</h3>
+                <p>梨大正门前的购物街区以时尚、美妆、配饰闻名，价格亲民的学生时尚吸引了无数年轻女性。街道两旁的樱花树在春季盛开，美不胜收。</p>
+            </div>
+        </section>
+
+        <!-- 今日感悟 -->
+        <section class="reflection">
+            <h2>今日感悟</h2>
+            <p>第一次来韩国，首尔的春日阳光明媚。梨花女子大学的校园比想象中更漂亮，下沉式图书馆真的很震撼。琳子和妈妈逛得很开心，梨大女人街买了不少东西。明天去博物馆和南山塔，继续探索首尔！</p>
+            <div class="signature">— 叶思染 · 2026年4月18日 于首尔</div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="divider"></div>
+        <p>🇰🇷 首尔旅行日记 · Day 0</p>
+        <p style="margin-top: 8px; font-size: 0.8rem;">2026年4月18日 — 梨花女子大学</p>
+    </footer>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <span class="lightbox-nav lightbox-prev">&#10094;</span>
+        <span class="lightbox-nav lightbox-next">&#10095;</span>
+        <div class="lightbox-content">
+            <img src="" alt="" id="lightbox-img">
+            <div class="lightbox-caption" id="lightbox-caption"></div>
+        </div>
+    </div>
+
+    <script>
+        // Lightbox functionality
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxCaption = document.getElementById('lightbox-caption');
+        const photoItems = document.querySelectorAll('.photo-item');
+        let currentIndex = 0;
+        const photos = Array.from(photoItems);
+
+        // Open lightbox
+        photoItems.forEach((item, index) => {
+            item.addEventListener('click', () => {
+                currentIndex = index;
+                const src = item.getAttribute('data-src');
+                const caption = item.getAttribute('data-caption');
+                
+                // Check if image exists, if not use placeholder
+                const img = new Image();
+                img.onload = () => {
+                    lightboxImg.src = src;
+                };
+                img.onerror = () => {
+                    // Create a canvas placeholder
+                    lightboxImg.src = '';
+                    lightboxCaption.textContent = caption + ' (照片待添加)';
+                };
+                img.src = src;
+                
+                lightboxImg.src = src;
+                lightboxCaption.textContent = caption;
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        // Close lightbox
+        document.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) closeLightbox();
+        });
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Navigate
+        document.querySelector('.lightbox-prev').addEventListener('click', (e) => {
+            e.stopPropagation();
+            currentIndex = (currentIndex - 1 + photos.length) % photos.length;
+            updateLightbox();
+        });
+
+        document.querySelector('.lightbox-next').addEventListener('click', (e) => {
+            e.stopPropagation();
+            currentIndex = (currentIndex + 1) % photos.length;
+            updateLightbox();
+        });
+
+        function updateLightbox() {
+            const item = photos[currentIndex];
+            const src = item.getAttribute('data-src');
+            const caption = item.getAttribute('data-caption');
+            lightboxImg.src = src;
+            lightboxCaption.textContent = caption;
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('active')) return;
+            
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft') {
+                currentIndex = (currentIndex - 1 + photos.length) % photos.length;
+                updateLightbox();
+            }
+            if (e.key === 'ArrowRight') {
+                currentIndex = (currentIndex + 1) % photos.length;
+                updateLightbox();
+            }
+        });
+
+        // Smooth scroll for internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
