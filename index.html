@@ -83,87 +83,114 @@
       color: #ccc;
     }
     
-    /* Trip Group Styles */
+    /* Trip Group Styles - 聚合页（内含多日） */
     .trip-group {
-      background: linear-gradient(135deg, #f8fdf6 0%, #f0f7ed 100%);
+      background: #fff;
       border-radius: 16px;
-      padding: 28px;
+      padding: 24px 28px 20px;
       margin-bottom: 20px;
-      border: 1px solid #d4e8cd;
-      box-shadow: 0 2px 12px rgba(124, 154, 106, 0.08);
+      border: 1.5px solid #c4a97d;
+      box-shadow: 0 2px 12px rgba(124, 154, 106, 0.10);
+      position: relative;
     }
-    
+
+    /* 左则竖条 */
+    .trip-group::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 16px;
+      bottom: 16px;
+      width: 4px;
+      background: linear-gradient(180deg, #c4a97d, #8b6f47);
+      border-radius: 0 3px 3px 0;
+    }
+
+    /* 右上角"合集"标签 */
     .trip-group-header {
-      text-align: center;
+      position: relative;
       margin-bottom: 16px;
     }
-    
+
+    .trip-group-badge {
+      position: absolute;
+      top: 0;
+      right: 0;
+      font-size: 0.72rem;
+      color: #8b6f47;
+      background: #f8f0e3;
+      border: 1px solid #e0d5c7;
+      padding: 3px 10px;
+      border-radius: 20px;
+      letter-spacing: 0.1em;
+    }
+
     .trip-group-icon {
-      font-size: 32px;
+      font-size: 28px;
       display: block;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
-    
+
     .trip-group-title {
-      font-size: 20px;
-      font-weight: 500;
-      color: #3d5c3a;
-      letter-spacing: 2px;
+      font-size: 19px;
+      font-weight: 600;
+      color: #2c1f14;
+      letter-spacing: 1.5px;
+      padding-right: 60px; /* 给badge留空间 */
     }
-    
+
     .trip-group-meta {
-      font-size: 13px;
-      color: #7a9a76;
-      margin-top: 6px;
+      font-size: 12px;
+      color: #9a8b78;
+      margin-top: 5px;
       letter-spacing: 1px;
     }
-    
+
     .trip-group-desc {
-      text-align: center;
       font-size: 13px;
-      color: #6b8b67;
+      color: #7a6a5a;
       line-height: 1.8;
-      margin-bottom: 24px;
-      padding: 0 10px;
+      margin-bottom: 20px;
+      padding: 0 4px;
     }
-    
+
     /* Day List Styles */
     .day-list {
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 10px;
+      margin-top: 4px;
     }
-    
+
     .day-card {
       display: flex;
       align-items: center;
-      gap: 16px;
-      background: #fff;
-      padding: 16px 20px;
-      border-radius: 12px;
+      gap: 14px;
+      background: #faf8f5;
+      padding: 14px 18px;
+      border-radius: 10px;
       text-decoration: none;
       color: inherit;
-      box-shadow: 0 1px 6px rgba(0,0,0,0.04);
       transition: all 0.2s ease;
-      border: 1px solid #e8f0e3;
+      border: 1px solid #ede8e0;
     }
-    
+
     .day-card:hover {
-      transform: translateX(4px);
-      box-shadow: 0 4px 16px rgba(124, 154, 106, 0.12);
-      border-color: #c5dcc0;
+      background: #f5f0e8;
+      border-color: #d4c8b8;
+      transform: translateX(3px);
     }
-    
+
     .day-arrow {
-      color: #a8c9a2;
-      font-size: 16px;
+      color: #c4a97d;
+      font-size: 15px;
       transition: color 0.2s;
     }
-    
+
     .day-card:hover .day-arrow {
-      color: #7c9a6a;
+      color: #8b6f47;
     }
-    
+
     .day-info {
       flex: 1;
       display: flex;
@@ -171,48 +198,50 @@
       gap: 12px;
       flex-wrap: wrap;
     }
-    
+
     .day-number {
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 600;
-      color: #7c9a6a;
-      background: #e8f0e3;
-      padding: 4px 10px;
+      color: #8b6f47;
+      background: #f8f0e3;
+      padding: 3px 9px;
       border-radius: 20px;
-      min-width: 50px;
+      min-width: 48px;
       text-align: center;
+      border: 1px solid #e0d5c7;
     }
-    
+
     .day-date {
-      font-size: 13px;
-      color: #999;
-      font-family: 'SF Mono', monospace;
+      font-size: 12px;
+      color: #b8a690;
+      font-family: 'SF Mono', 'Fira Code', monospace;
     }
-    
+
     .day-title {
-      font-size: 15px;
-      color: #2c3e2d;
+      font-size: 14px;
+      color: #3d2e1e;
       font-weight: 500;
     }
-    
+
     .day-location {
-      font-size: 13px;
-      color: #9ab896;
+      font-size: 12px;
+      color: #b8a690;
       margin-left: auto;
     }
-    
+
     .day-placeholder {
-      opacity: 0.6;
+      opacity: 0.55;
       cursor: default;
     }
-    
+
     .day-placeholder:hover {
       transform: none;
-      box-shadow: 0 1px 6px rgba(0,0,0,0.04);
+      background: #faf8f5;
+      border-color: #ede8e0;
     }
-    
+
     .day-placeholder .day-title {
-      color: #aaa;
+      color: #bbb;
     }
   </style>
 </head>
@@ -225,6 +254,7 @@
       <!-- 420 美国西海岸之旅 -->
       <div class="trip-group">
         <div class="trip-group-header">
+          <span class="trip-group-badge">合集</span>
           <span class="trip-group-icon">🇺🇸</span>
           <div class="trip-group-title">420 美国西海岸之旅</div>
           <div class="trip-group-meta">2026年4月18日 - 5月7日 · 20天</div>
