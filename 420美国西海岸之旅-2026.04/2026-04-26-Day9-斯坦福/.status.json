@@ -1,10 +1,11 @@
 {
   "photos_analyzed": [
-    "stanford-pigott-01.jpg"
+    "stanford-pigott-01.jpg",
+    "stanford-hoover-01.jpg"
   ],
   "photos_md_done": true,
-  "index_html_done": false,
-  "git_committed": false,
-  "last_run": null,
+  "index_html_done": true,
+  "git_committed": true,
+  "last_run": "generate_daily_journal.py",
   "last_error": null
 }
