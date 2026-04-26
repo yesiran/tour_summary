@@ -1,0 +1,17 @@
+{
+  "photos_analyzed": [
+    "seattle-01.jpg",
+    "seattle-02.jpg",
+    "snoqualmie-falls-01.jpg",
+    "snoqualmie-falls-02.jpg",
+    "snoqualmie-falls-03.jpg",
+    "snoqualmie-falls-04.jpg",
+    "snoqualmie-falls-05.jpg"
+  ],
+  "photos_md_done": true,
+  "index_html_done": false,
+  "git_committed": false,
+  "last_run": "generate_daily_journal.py",
+  "last_error": null,
+  "pending_photos": []
+}
