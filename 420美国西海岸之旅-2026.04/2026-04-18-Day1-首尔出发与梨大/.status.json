@@ -1,11 +1,5 @@
 {
-  "photos_analyzed": [],
-  "photos_md_done": false,
-  "index_html_done": false,
-  "git_committed": false,
-  "last_run": "generate_daily_journal.py",
-  "last_error": null,
-  "pending_photos": [
+  "photos_analyzed": [
     "ewha-01.jpg",
     "ewha-02.jpg",
     "ewha-03.jpg",
@@ -14,5 +8,11 @@
     "ewha-06.jpg",
     "ewha-07.jpg",
     "ewha-08.jpg"
-  ]
+  ],
+  "photos_md_done": false,
+  "index_html_done": false,
+  "git_committed": false,
+  "last_run": "generate_daily_journal.py",
+  "last_error": null,
+  "pending_photos": []
 }
