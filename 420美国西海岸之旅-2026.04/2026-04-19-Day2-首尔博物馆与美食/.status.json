@@ -1,11 +1,5 @@
 {
-  "photos_analyzed": [],
-  "photos_md_done": false,
-  "index_html_done": false,
-  "git_committed": false,
-  "last_run": "generate_daily_journal.py",
-  "last_error": null,
-  "pending_photos": [
+  "photos_analyzed": [
     "01_青松台指示牌.jpg",
     "02_延世大学建筑.jpg",
     "03_林荫步道.jpg",
@@ -19,5 +13,11 @@
     "11_RAIM三人合影.jpg",
     "12_RAIM机器人头部合影.jpg",
     "13_明洞地图.jpg"
-  ]
+  ],
+  "photos_md_done": false,
+  "index_html_done": false,
+  "git_committed": false,
+  "last_run": "generate_daily_journal.py",
+  "last_error": null,
+  "pending_photos": []
 }

@@ -1,600 +1,341 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>首尔 Day 1 · 博物馆与美食</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    
-    body {
-      font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
-      background: linear-gradient(180deg, #faf8f5 0%, #f5f2ed 100%);
-      color: #333;
-      min-height: 100vh;
-      line-height: 1.8;
-    }
-    
-    /* Header */
-    .hero {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      color: #fff;
-      padding: 80px 20px 60px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></svg>');
-      background-size: 60px 60px;
-      opacity: 0.3;
-    }
-    
-    .hero-content {
-      position: relative;
-      z-index: 1;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-    
-    .hero-badge {
-      display: inline-block;
-      background: rgba(255,255,255,0.2);
-      padding: 6px 16px;
-      border-radius: 20px;
-      font-size: 13px;
-      letter-spacing: 2px;
-      margin-bottom: 20px;
-      backdrop-filter: blur(10px);
-    }
-    
-    .hero h1 {
-      font-size: 32px;
-      font-weight: 300;
-      letter-spacing: 4px;
-      margin-bottom: 12px;
-    }
-    
-    .hero .subtitle {
-      font-size: 15px;
-      opacity: 0.9;
-      letter-spacing: 1px;
-    }
-    
-    .hero .date {
-      font-size: 14px;
-      opacity: 0.8;
-      margin-top: 16px;
-      font-family: 'SF Mono', monospace;
-    }
-    
-    /* Container */
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 40px 20px;
-    }
-    
-    /* Section */
-    .section {
-      margin-bottom: 60px;
-    }
-    
-    .section-header {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 24px;
-      padding-bottom: 16px;
-      border-bottom: 1px solid #e8e4de;
-    }
-    
-    .section-icon {
-      font-size: 24px;
-    }
-    
-    .section-title {
-      font-size: 20px;
-      font-weight: 500;
-      color: #2c2c2c;
-      letter-spacing: 2px;
-    }
-    
-    .section-time {
-      margin-left: auto;
-      font-size: 13px;
-      color: #999;
-      font-family: 'SF Mono', monospace;
-    }
-    
-    /* Story text */
-    .story {
-      font-size: 15px;
-      color: #555;
-      line-height: 2;
-      margin-bottom: 24px;
-      text-align: justify;
-    }
-    
-    .story p {
-      margin-bottom: 16px;
-      text-indent: 2em;
-    }
-    
-    .story p:first-child {
-      text-indent: 0;
-    }
-    
-    .story p:first-child::first-letter {
-      font-size: 42px;
-      font-weight: 300;
-      color: #667eea;
-      float: left;
-      line-height: 1;
-      margin-right: 8px;
-      margin-top: 4px;
-    }
-    
-    /* Photo Grid */
-    .photo-grid {
-      display: grid;
-      gap: 12px;
-      margin-bottom: 24px;
-    }
-    
-    .photo-grid.two-col {
-      grid-template-columns: repeat(2, 1fr);
-    }
-    
-    .photo-grid.three-col {
-      grid-template-columns: repeat(3, 1fr);
-    }
-    
-    .photo-grid.mixed {
-      grid-template-columns: 2fr 1fr;
-    }
-    
-    .photo-item {
-      position: relative;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-      cursor: pointer;
-      transition: transform 0.3s, box-shadow 0.3s;
-      background: #f0f0f0;
-    }
-    
-    .photo-item:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 28px rgba(0,0,0,0.15);
-    }
-    
-    .photo-item img {
-      width: 100%;
-      height: auto;
-      display: block;
-      object-fit: contain;
-    }
-    
-    .photo-caption {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      padding: 20px 12px 12px;
-      background: linear-gradient(transparent, rgba(0,0,0,0.6));
-      color: #fff;
-      font-size: 13px;
-      opacity: 0;
-      transition: opacity 0.3s;
-    }
-    
-    .photo-item:hover .photo-caption {
-      opacity: 1;
-    }
-    
-    /* Photo Note */
-    .photo-note {
-      font-size: 13px;
-      color: #888;
-      text-align: center;
-      margin-top: 12px;
-      font-style: italic;
-    }
-    
-    /* Highlight box */
-    .highlight-box {
-      background: linear-gradient(135deg, #f8fdf6 0%, #f0f7ed 100%);
-      border-left: 4px solid #7c9a6a;
-      padding: 20px 24px;
-      border-radius: 0 12px 12px 0;
-      margin: 24px 0;
-    }
-    
-    .highlight-box .label {
-      font-size: 12px;
-      color: #7c9a6a;
-      letter-spacing: 1px;
-      margin-bottom: 8px;
-      font-weight: 500;
-    }
-    
-    .highlight-box .content {
-      font-size: 15px;
-      color: #4a5c47;
-      line-height: 1.8;
-    }
-    
-    /* Lightbox */
-    .lightbox {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.95);
-      z-index: 1000;
-      justify-content: center;
-      align-items: center;
-      opacity: 0;
-      transition: opacity 0.3s;
-    }
-    
-    .lightbox.active {
-      display: flex;
-      opacity: 1;
-    }
-    
-    .lightbox-content {
-      max-width: 90%;
-      max-height: 90%;
-      position: relative;
-    }
-    
-    .lightbox img {
-      max-width: 100%;
-      max-height: 90vh;
-      object-fit: contain;
-      border-radius: 4px;
-    }
-    
-    .lightbox-close {
-      position: absolute;
-      top: 20px;
-      right: 30px;
-      font-size: 36px;
-      color: #fff;
-      cursor: pointer;
-      opacity: 0.8;
-      transition: opacity 0.2s;
-    }
-    
-    .lightbox-close:hover {
-      opacity: 1;
-    }
-    
-    .lightbox-nav {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 30px;
-      color: #fff;
-      cursor: pointer;
-      padding: 20px;
-      opacity: 0.6;
-      transition: opacity 0.2s;
-      user-select: none;
-    }
-    
-    .lightbox-nav:hover {
-      opacity: 1;
-    }
-    
-    .lightbox-prev { left: 20px; }
-    .lightbox-next { right: 20px; }
-    
-    .lightbox-caption {
-      position: absolute;
-      bottom: 30px;
-      left: 50%;
-      transform: translateX(-50%);
-      color: #fff;
-      font-size: 14px;
-      text-align: center;
-      max-width: 80%;
-      opacity: 0.9;
-    }
-    
-    /* Footer */
-    .footer {
-      text-align: center;
-      padding: 40px 20px;
-      color: #aaa;
-      font-size: 13px;
-    }
-    
-    .footer a {
-      color: #667eea;
-      text-decoration: none;
-    }
-    
-    /* Responsive */
-    @media (max-width: 600px) {
-      .hero h1 {
-        font-size: 24px;
-      }
-      
-      .photo-grid.two-col,
-      .photo-grid.three-col,
-      .photo-grid.mixed {
-        grid-template-columns: 1fr;
-      }
-      
-      .section-header {
-        flex-wrap: wrap;
-      }
-      
-      .section-time {
-        margin-left: 36px;
-        width: 100%;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generated" content="2026-04-19-Day2-首尔博物馆与美食">
+<title>Day2 首尔博物馆与美食 · 420美国西海岸之旅-2026.04</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #faf8f5;
+    color: #3d2e1e;
+    font-family: "Noto Serif SC", "Source Han Serif SC", serif;
+    line-height: 1.9;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 60px 24px 100px;
+  }
+  a { color: #8b6f47; text-decoration: none; }
+  a:hover { color: #6b5233; }
+  .back {
+    display: inline-block;
+    font-size: 0.85rem;
+    color: #9a8b78;
+    margin-bottom: 40px;
+    letter-spacing: 0.1em;
+    transition: color 0.2s;
+  }
+  .back:hover { color: #6b5233; }
+  header {
+    text-align: center;
+    margin-bottom: 56px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid #e8e0d4;
+  }
+  h1 {
+    font-size: 2rem;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    color: #2c1f14;
+    margin-bottom: 12px;
+  }
+  .meta {
+    font-size: 0.85rem;
+    color: #9a8b78;
+    letter-spacing: 0.2em;
+  }
+  .meta span { margin: 0 8px; }
+  .day-badge {
+    display: inline-block;
+    background: #f3ede4;
+    color: #8b6f47;
+    font-size: 0.78rem;
+    padding: 4px 14px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    letter-spacing: 0.1em;
+  }
+  .section-title {
+    font-size: 1.1rem;
+    color: #8b6f47;
+    letter-spacing: 0.25em;
+    margin: 48px 0 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .section-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #e0d5c7;
+  }
+  .photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 16px;
+    margin-top: 16px;
+  }
+  .photo-card {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #f0ebe4;
+    cursor: pointer;
+    aspect-ratio: 4/3;
+  }
+  .photo-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+  }
+  .photo-card:hover img {
+    transform: scale(1.05);
+  }
+  .photo-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.7));
+    color: #fff;
+    padding: 32px 16px 16px;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .photo-card:hover .photo-overlay {
+    opacity: 1;
+  }
+  .photo-name {
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 4px;
+  }
+  .photo-desc {
+    font-size: 0.78rem;
+    opacity: 0.85;
+    line-height: 1.5;
+  }
+  .lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.9);
+    z-index: 999;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .lightbox.open { display: flex; }
+  .lightbox img {
+    max-width: 90vw;
+    max-height: 80vh;
+    border-radius: 8px;
+  }
+  .lightbox-caption {
+    color: #fff;
+    margin-top: 16px;
+    font-size: 0.9rem;
+    text-align: center;
+  }
+  .lightbox-close {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    color: #fff;
+    font-size: 2rem;
+    cursor: pointer;
+    opacity: 0.7;
+  }
+  .lightbox-close:hover { opacity: 1; }
+  .nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255,255,255,0.15);
+    border: none;
+    color: #fff;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 16px;
+    border-radius: 8px;
+    opacity: 0.7;
+  }
+  .nav-btn:hover { opacity: 1; background: rgba(255,255,255,0.25); }
+  .nav-prev { left: 24px; }
+  .nav-next { right: 24px; }
+  footer {
+    text-align: center;
+    margin-top: 80px;
+    padding-top: 40px;
+    border-top: 1px solid #e8e0d4;
+    font-size: 0.82rem;
+    color: #b8a690;
+    letter-spacing: 0.2em;
+  }
+  @media (max-width: 600px) {
+    .photo-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+    body { padding: 40px 16px 80px; }
+  }
+</style>
 </head>
 <body>
-  <!-- Hero -->
-  <header class="hero">
-    <div class="hero-content">
-      <div class="hero-badge">🇰🇷 首尔 · Day 1</div>
-      <h1>博物馆与美食</h1>
-      <p class="subtitle">延世大学的绿荫 · RAIM的未来 · 广藏市场的烟火</p>
-      <p class="date">2026年4月19日 · 星期六</p>
+
+<a href="../" class="back">&larr; 返回行程列表</a>
+
+<header>
+  <div class="day-badge">Day 2</div>
+  <h1>Day2 首尔博物馆与美食</h1>
+  <p class="meta"><span>2026年4月19日</span> · <span>周日</span></p>
+</header>
+
+<div class="section-title">影像</div>
+<div class="photo-grid">
+
+    <div class="photo-card" data-index="0">
+      <img src="images/01_青松台指示牌.jpg" alt="校园绿意图" loading="lazy">
+      <div class="photo-overlay">
+        <div class="photo-name">校园绿意图</div>
+        <div class="photo-desc">延世大学青松台导览牌展示森林地图与入园守则，绿意盎然</div>
+      </div>
     </div>
-  </header>
-
-  <div class="container">
-    <!-- Morning: Yonsei University -->
-    <section class="section">
-      <div class="section-header">
-        <span class="section-icon">🎓</span>
-        <h2 class="section-title">延世大学</h2>
-        <span class="section-time">上午</span>
+    <div class="photo-card" data-index="1">
+      <img src="images/02_延世大学建筑.jpg" alt="翠蔓古楼" loading="lazy">
+      <div class="photo-overlay">
+        <div class="photo-name">翠蔓古楼</div>
+        <div class="photo-desc">爬满青藤的石楼在阳光下静谧典雅，繁花绿树环绕</div>
       </div>
-      
-      <div class="story">
-        <p>清晨的首尔带着春日的微凉，我们来到了韩国最负盛名的高等学府之一——延世大学。从青松台的指示牌开始，这座百年校园向我们徐徐展开它的画卷。哥特式的建筑伫立在道路两旁，爬满藤蔓的石墙诉说着岁月的故事。</p>
-        <p>沿着林荫步道漫步，参天的树冠在头顶交织成一片绿色的穹顶。阳光透过叶缝洒下斑驳的光影，学生们的谈笑声从远处传来，让人不禁想起自己的大学时光。露天剧场的阶梯上，有人在读书，有人在私语，这座校园不仅是求知的殿堂，更是青春的诗篇。</p>
-        <p>纪念石墙上镌刻着捐赠者的名字，每一块石头都承载着对教育的敬意。而在校园深处，那座韩式庭园静静伫立，云片松的姿态优雅而古朴，将东方园林的意境与西方建筑的庄严完美融合。</p>
-      </div>
-      
-      <div class="photo-grid two-col">
-        <div class="photo-item" onclick="openLightbox(0)">
-          <img src="images/01_青松台指示牌.jpg" alt="青松台指示牌" loading="lazy">
-          <div class="photo-caption">青松台指示牌 · 校园的门户</div>
-        </div>
-        <div class="photo-item" onclick="openLightbox(1)">
-          <img src="images/02_延世大学建筑.jpg" alt="延世大学建筑" loading="lazy">
-          <div class="photo-caption">哥特式建筑 · 百年学府的庄严</div>
-        </div>
-      </div>
-      
-      <div class="photo-grid three-col">
-        <div class="photo-item" onclick="openLightbox(2)">
-          <img src="images/03_林荫步道.jpg" alt="林荫步道" loading="lazy">
-          <div class="photo-caption">林荫步道</div>
-        </div>
-        <div class="photo-item" onclick="openLightbox(3)">
-          <img src="images/04_仰望树冠.jpg" alt="仰望树冠" loading="lazy">
-          <div class="photo-caption">仰望树冠</div>
-        </div>
-        <div class="photo-item" onclick="openLightbox(4)">
-          <img src="images/05_露天剧场.jpg" alt="露天剧场" loading="lazy">
-          <div class="photo-caption">露天剧场</div>
-        </div>
-      </div>
-      
-      <div class="photo-grid two-col">
-        <div class="photo-item" onclick="openLightbox(5)">
-          <img src="images/06_纪念石墙.jpg" alt="纪念石墙" loading="lazy">
-          <div class="photo-caption">纪念石墙 · 镌刻的名字</div>
-        </div>
-        <div class="photo-item" onclick="openLightbox(6)">
-          <img src="images/07_韩式庭园云片松.jpg" alt="韩式庭园云片松" loading="lazy">
-          <div class="photo-caption">韩式庭园 · 云片松</div>
-        </div>
-      </div>
-      
-      <div class="photo-grid" style="max-width: 60%; margin-left: auto; margin-right: auto;">
-        <div class="photo-item" onclick="openLightbox(7)">
-          <img src="images/08_捐赠者纪念碑.jpg" alt="捐赠者纪念碑" loading="lazy">
-          <div class="photo-caption">捐赠者纪念碑</div>
-        </div>
-      </div>
-      
-      <div class="highlight-box">
-        <div class="label">💡 小记</div>
-        <div class="content">延世大学的校园让人想起霍格沃茨，古老与现代在这里奇妙地交融。走在林荫道上，仿佛能听到历史的低语。</div>
-      </div>
-    </section>
-
-    <!-- Afternoon: RAIM -->
-    <section class="section">
-      <div class="section-header">
-        <span class="section-icon">🤖</span>
-        <h2 class="section-title">首尔机器人与AI博物馆</h2>
-        <span class="section-time">下午</span>
-      </div>
-      
-      <div class="story">
-        <p>午后，我们前往位于道峰区的首尔机器人与AI博物馆（RAIM）。这是世界上第一座由机器人设计、建造并运营的博物馆，本身就是一件未来主义的艺术品。建筑外观如同一艘降临地球的宇宙飞船，银白色的曲面在阳光下熠熠生辉。</p>
-        <p>走进馆内，楼层导览上的机器人形象热情地向我们招手。展览分为多个主题区域，从工业机器人到人形机器人，从AI算法到未来城市的想象。最令人难忘的是那些可以互动的展品——机器人随着音乐起舞，机械臂精准地完成复杂的动作，AI程序实时生成艺术作品。</p>
-        <p>在巨大的机器人头部装置前，我们留下了合影。那是一台已有数十年历史的工业机器人，如今被艺术家重新赋予了生命，成为连接过去与未来的桥梁。而那张三人合影，定格了我们在这座未来殿堂中的好奇与惊叹。</p>
-      </div>
-      
-      <div class="photo-grid" style="max-width: 70%; margin-left: auto; margin-right: auto;">
-        <div class="photo-item" onclick="openLightbox(8)">
-          <img src="images/09_RAIM楼层导览.jpg" alt="RAIM楼层导览" loading="lazy">
-          <div class="photo-caption">RAIM楼层导览 · 未来的邀请</div>
-        </div>
-      </div>
-      
-      <div class="photo-grid two-col">
-        <div class="photo-item" onclick="openLightbox(10)">
-          <img src="images/11_RAIM三人合影.jpg" alt="RAIM三人合影" loading="lazy">
-          <div class="photo-caption">三人合影 · 未来见证者</div>
-        </div>
-        <div class="photo-item" onclick="openLightbox(11)">
-          <img src="images/12_RAIM机器人头部合影.jpg" alt="RAIM机器人头部合影" loading="lazy">
-          <div class="photo-caption">与机器人头部合影</div>
-        </div>
-      </div>
-      
-      <div class="highlight-box">
-        <div class="label">🤖 冷知识</div>
-        <div class="content">RAIM是世界上首座由机器人建造并运营的博物馆。它的设计和建造过程中大量使用了机器人和AI技术，本身就是对未来建筑方式的一次探索。</div>
-      </div>
-    </section>
-
-    <!-- Evening: City Moments -->
-    <section class="section">
-      <div class="section-header">
-        <span class="section-icon">🌆</span>
-        <h2 class="section-title">城市碎片</h2>
-        <span class="section-time">傍晚</span>
-      </div>
-      
-      <div class="story">
-        <p>离开RAIM，我们在首尔市区穿行。街角那座紧急警报塔静静伫立，是现代都市中战争记忆的留存。红白相间的条纹在蓝天映衬下格外醒目，提醒着人们和平的珍贵。而明洞地图则记录着我们在这座繁华商圈的足迹——虽然这张照片可能是在其他时间拍摄的，但它同样是首尔记忆的一部分。</p>
-      </div>
-      
-      <div class="photo-grid two-col">
-        <div class="photo-item" onclick="openLightbox(9)">
-          <img src="images/10_首尔紧急警报.jpg" alt="首尔紧急警报" loading="lazy">
-          <div class="photo-caption">首尔紧急警报塔 · 和平的提醒</div>
-        </div>
-        <div class="photo-item" onclick="openLightbox(12)">
-          <img src="images/13_明洞地图.jpg" alt="明洞地图" loading="lazy">
-          <div class="photo-caption">明洞地图 · 繁华商圈</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Night: Food -->
-    <section class="section">
-      <div class="section-header">
-        <span class="section-icon">🍜</span>
-        <h2 class="section-title">广藏市场的烟火</h2>
-        <span class="section-time">晚上</span>
-      </div>
-      
-      <div class="story">
-        <p>夜幕降临，我们来到首尔最具代表性的传统市场——广藏市场。这里没有精致的装潢，没有刻意的设计，只有最地道的首尔味道和最让人安心的烟火气。</p>
-        <p>绿豆煎饼在铁板上滋滋作响，外皮金黄酥脆，内里软糯香甜。麻药紫菜包饭小巧玲珑，一口一个，芥末酱的辛辣与蔬菜的清爽在口中碰撞。而最具挑战性的活章鱼，触须在盘中蠕动，蘸上韩式辣酱送入口中，吸盘在舌尖的吸附感是一种奇妙的体验。</p>
-        <p>这一天，从延世大学的古典绿荫，到RAIM的未来科技，再到广藏市场的市井烟火，我们在首尔走了一段跨越时空的旅程。这座城市就是这样，永远在传统与现代之间，在过去与未来之间，保持着一种独特的张力。</p>
-      </div>
-      
-      <div class="highlight-box">
-        <div class="label">🍽️ 今日菜单</div>
-        <div class="content">
-          • 绿豆煎饼（빈대떡）- 外酥里嫩，配着米酒最是地道<br>
-          • 麻药紫菜包饭（마약김밥）- 小巧可爱，芥末酱是灵魂<br>
-          • 活章鱼（산낙지）- 勇敢者的美食，吸盘的触感永生难忘
-        </div>
-      </div>
-    </section>
-
-    <!-- Navigation -->
-    <div style="text-align: center; margin: 60px 0 40px;">
-      <a href="../" style="display: inline-block; padding: 12px 28px; background: #667eea; color: #fff; text-decoration: none; border-radius: 24px; font-size: 14px; letter-spacing: 1px; transition: all 0.3s;">
-        ← 返回旅程首页
-      </a>
     </div>
-  </div>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <p>一叶琳旅程 · 用脚步丈量世界</p>
-    <p style="margin-top: 8px; font-size: 12px;">🇰🇷 首尔 Day 1 · 2026.04.19</p>
-  </footer>
-
-  <!-- Lightbox -->
-  <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
-    <div class="lightbox-close" onclick="closeLightbox(event)">&times;</div>
-    <div class="lightbox-nav lightbox-prev" onclick="changePhoto(-1, event)">&#8249;</div>
-    <div class="lightbox-nav lightbox-next" onclick="changePhoto(1, event)">&#8250;</div>
-    <div class="lightbox-content">
-      <img id="lightbox-img" src="" alt="">
-      <div class="lightbox-caption" id="lightbox-caption"></div>
+    <div class="photo-card" data-index="2">
+      <img src="images/03_林荫步道.jpg" alt="斑驳林径" loading="lazy">
+      <div class="photo-overlay">
+        <div class="photo-name">斑驳林径</div>
+        <div class="photo-desc">翠绿枫叶遮蔽林间小径，斑驳光影洒满地面，宁静清新</div>
+      </div>
     </div>
-  </div>
+    <div class="photo-card" data-index="3">
+      <img src="images/04_仰望树冠.jpg" alt="参天绿意" loading="lazy">
+      <div class="photo-overlay">
+        <div class="photo-name">参天绿意</div>
+        <div class="photo-desc">阳光穿透翠绿林间，映照笔直参天古木，宁静清新</div>
+      </div>
+    </div>
+    <div class="photo-card" data-index="4">
+      <img src="images/05_露天剧场.jpg" alt="林间露天台" loading="lazy">
+      <div class="photo-overlay">
+        <div class="photo-name">林间露天台</div>
+        <div class="photo-desc">绿树环抱的露天剧场，阳光洒在石阶上，宁静开阔</div>
+      </div>
+    </div>
+    <div class="photo-card" data-index="5">
+      <img src="images/06_纪念石墙.jpg" alt="镌刻的岁月" loading="lazy">
+      <div class="photo-overlay">
+        <div class="photo-name">镌刻的岁月</div>
+        <div class="photo-desc">刻有校友姓名与年份的花岗岩石阶，阳光下诉说往昔</div>
+      </div>
+    </div>
+    <div class="photo-card" data-index="6">
+      <img src="images/07_韩式庭园云片松.jpg" alt="云松映石径" loading="lazy">
+      <div class="photo-overlay">
+        <div class="photo-name">云松映石径</div>
+        <div class="photo-desc">修剪整齐的云松沿石径错落而立，红花掩映，宁静</div>
+      </div>
+    </div>
+    <div class="photo-card" data-index="7">
+      <img src="images/08_捐赠者纪念碑.jpg" alt="铭刻的谢意" loading="lazy">
+      <div class="photo-overlay">
+        <div class="photo-name">铭刻的谢意</div>
+        <div class="photo-desc">绿植环绕的黑色捐赠碑，阳光下铭刻善举，庄重宁静</div>
+      </div>
+    </div>
+    <div class="photo-card" data-index="8">
+      <img src="images/09_RAIM楼层导览.jpg" alt="极简楼层志" loading="lazy">
+      <div class="photo-overlay">
+        <div class="photo-name">极简楼层志</div>
+        <div class="photo-desc">韩国现代场馆极简导览牌，黑白金色调简洁明快</div>
+      </div>
+    </div>
+    <div class="photo-card" data-index="9">
+      <img src="images/10_首尔紧急警报.jpg" alt="异乡的警示音" loading="lazy">
+      <div class="photo-overlay">
+        <div class="photo-name">异乡的警示音</div>
+        <div class="photo-desc">手机弹出韩文寻人警报，描述走失老人特征，异国紧张与温情</div>
+      </div>
+    </div>
+    <div class="photo-card" data-index="10">
+      <img src="images/11_RAIM三人合影.jpg" alt="机器人前合影" loading="lazy">
+      <div class="photo-overlay">
+        <div class="photo-name">机器人前合影</div>
+        <div class="photo-desc">三人在卡通机器人背景前合影，笑容灿烂，轻松愉快</div>
+      </div>
+    </div>
+    <div class="photo-card" data-index="11">
+      <img src="images/12_RAIM机器人头部合影.jpg" alt="跨时空微笑" loading="lazy">
+      <div class="photo-overlay">
+        <div class="photo-name">跨时空微笑</div>
+        <div class="photo-desc">游客与AI头像在末来感展厅合影，笑容灿烂，氛围温馨</div>
+      </div>
+    </div>
+    <div class="photo-card" data-index="12">
+      <img src="images/13_明洞地图.jpg" alt="明洞夜行" loading="lazy">
+      <div class="photo-overlay">
+        <div class="photo-name">明洞夜行</div>
+        <div class="photo-desc">手机地图定格首尔明洞，夜晚微凉，繁华街巷寻美食</div>
+      </div>
+    </div>
+</div>
 
-  <script>
-    const photos = [
-      { src: 'images/01_青松台指示牌.jpg', caption: '青松台指示牌 · 校园的门户' },
-      { src: 'images/02_延世大学建筑.jpg', caption: '哥特式建筑 · 百年学府的庄严' },
-      { src: 'images/03_林荫步道.jpg', caption: '林荫步道 · 通往知识的道路' },
-      { src: 'images/04_仰望树冠.jpg', caption: '仰望树冠 · 绿色的穹顶' },
-      { src: 'images/05_露天剧场.jpg', caption: '露天剧场 · 青春的诗篇' },
-      { src: 'images/06_纪念石墙.jpg', caption: '纪念石墙 · 镌刻的名字' },
-      { src: 'images/07_韩式庭园云片松.jpg', caption: '韩式庭园 · 云片松的优雅' },
-      { src: 'images/08_捐赠者纪念碑.jpg', caption: '捐赠者纪念碑 · 教育的敬意' },
-      { src: 'images/09_RAIM楼层导览.jpg', caption: 'RAIM楼层导览 · 未来的邀请' },
-      { src: 'images/10_首尔紧急警报.jpg', caption: '首尔紧急警报塔 · 和平的提醒' },
-      { src: 'images/11_RAIM三人合影.jpg', caption: '三人合影 · 未来见证者' },
-      { src: 'images/12_RAIM机器人头部合影.jpg', caption: '与机器人头部合影' },
-      { src: 'images/13_明洞地图.jpg', caption: '明洞地图 · 繁华商圈' }
-    ];
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+  <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+  <button class="nav-btn nav-prev" onclick="prevPhoto()">&#10094;</button>
+  <img id="lightbox-img" src="" alt="">
+  <div class="lightbox-caption" id="lightbox-caption"></div>
+  <button class="nav-btn nav-next" onclick="nextPhoto()">&#10095;</button>
+</div>
 
-    let currentIndex = 0;
+<script>
+const photos = [{"name": "01_\u9752\u677e\u53f0\u6307\u793a\u724c.jpg", "desc": "\u6821\u56ed\u7eff\u610f\u56fe"}, {"name": "02_\u5ef6\u4e16\u5927\u5b66\u5efa\u7b51.jpg", "desc": "\u7fe0\u8513\u53e4\u697c"}, {"name": "03_\u6797\u836b\u6b65\u9053.jpg", "desc": "\u6591\u9a73\u6797\u5f84"}, {"name": "04_\u4ef0\u671b\u6811\u51a0.jpg", "desc": "\u53c2\u5929\u7eff\u610f"}, {"name": "05_\u9732\u5929\u5267\u573a.jpg", "desc": "\u6797\u95f4\u9732\u5929\u53f0"}, {"name": "06_\u7eaa\u5ff5\u77f3\u5899.jpg", "desc": "\u954c\u523b\u7684\u5c81\u6708"}, {"name": "07_\u97e9\u5f0f\u5ead\u56ed\u4e91\u7247\u677e.jpg", "desc": "\u4e91\u677e\u6620\u77f3\u5f84"}, {"name": "08_\u6350\u8d60\u8005\u7eaa\u5ff5\u7891.jpg", "desc": "\u94ed\u523b\u7684\u8c22\u610f"}, {"name": "09_RAIM\u697c\u5c42\u5bfc\u89c8.jpg", "desc": "\u6781\u7b80\u697c\u5c42\u5fd7"}, {"name": "10_\u9996\u5c14\u7d27\u6025\u8b66\u62a5.jpg", "desc": "\u5f02\u4e61\u7684\u8b66\u793a\u97f3"}, {"name": "11_RAIM\u4e09\u4eba\u5408\u5f71.jpg", "desc": "\u673a\u5668\u4eba\u524d\u5408\u5f71"}, {"name": "12_RAIM\u673a\u5668\u4eba\u5934\u90e8\u5408\u5f71.jpg", "desc": "\u8de8\u65f6\u7a7a\u5fae\u7b11"}, {"name": "13_\u660e\u6d1e\u5730\u56fe.jpg", "desc": "\u660e\u6d1e\u591c\u884c"}];
+let current = 0;
 
-    function openLightbox(index) {
-      currentIndex = index;
-      const lightbox = document.getElementById('lightbox');
-      const img = document.getElementById('lightbox-img');
-      const caption = document.getElementById('lightbox-caption');
-      
-      img.src = photos[index].src;
-      caption.textContent = photos[index].caption;
-      lightbox.classList.add('active');
-      document.body.style.overflow = 'hidden';
-    }
+function openLightbox(idx) {
+  current = idx;
+  updateLightbox();
+  document.getElementById('lightbox').classList.add('open');
+}
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('open');
+}
+function prevPhoto() {
+  current = (current - 1 + photos.length) % photos.length;
+  updateLightbox();
+}
+function nextPhoto() {
+  current = (current + 1) % photos.length;
+  updateLightbox();
+}
+function updateLightbox() {
+  document.getElementById('lightbox-img').src = 'images/' + photos[current].name;
+  document.getElementById('lightbox-caption').textContent = photos[current].desc;
+}
 
-    function closeLightbox(event) {
-      if (event.target.classList.contains('lightbox') || event.target.classList.contains('lightbox-close')) {
-        const lightbox = document.getElementById('lightbox');
-        lightbox.classList.remove('active');
-        document.body.style.overflow = '';
-      }
-    }
+document.querySelectorAll('.photo-card').forEach((card, i) => {
+  card.onclick = () => openLightbox(i);
+});
 
-    function changePhoto(direction, event) {
-      event.stopPropagation();
-      currentIndex = (currentIndex + direction + photos.length) % photos.length;
-      const img = document.getElementById('lightbox-img');
-      const caption = document.getElementById('lightbox-caption');
-      img.src = photos[currentIndex].src;
-      caption.textContent = photos[currentIndex].caption;
-    }
+document.addEventListener('keydown', e => {
+  if (!document.getElementById('lightbox').classList.contains('open')) return;
+  if (e.key === 'Escape') closeLightbox();
+  if (e.key === 'ArrowLeft') prevPhoto();
+  if (e.key === 'ArrowRight') nextPhoto();
+});
+</script>
 
-    // Keyboard navigation
-    document.addEventListener('keydown', (e) => {
-      const lightbox = document.getElementById('lightbox');
-      if (!lightbox.classList.contains('active')) return;
-      
-      if (e.key === 'Escape') {
-        lightbox.classList.remove('active');
-        document.body.style.overflow = '';
-      } else if (e.key === 'ArrowLeft') {
-        changePhoto(-1, { stopPropagation: () => {} });
-      } else if (e.key === 'ArrowRight') {
-        changePhoto(1, { stopPropagation: () => {} });
-      }
-    });
-  </script>
+<footer>
+  420美国西海岸之旅-2026.04 · 一叶琳旅程
+</footer>
 </body>
 </html>
