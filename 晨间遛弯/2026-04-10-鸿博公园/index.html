@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>鸿博公园 · 晨间遛弯</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: "Songti SC", "STSong", "Noto Serif CJK SC", "Source Han Serif SC", serif;
+  background: #faf8f5;
+  color: #2c2c2c;
+  line-height: 1.9;
+  padding: 60px 20px 80px;
+}
+.wrap { max-width: 720px; margin: 0 auto; }
+.crumbs {
+  font-size: 13px;
+  color: #999;
+  margin-bottom: 32px;
+  letter-spacing: 1px;
+}
+.crumbs a { color: #888; text-decoration: none; }
+.crumbs a:hover { color: #555; }
+h1 {
+  font-size: 28px;
+  font-weight: 500;
+  letter-spacing: 3px;
+  color: #1a1a1a;
+  margin-bottom: 8px;
+}
+.meta {
+  font-size: 13px;
+  color: #999;
+  letter-spacing: 1px;
+  margin-bottom: 40px;
+}
+.narrative {
+  font-size: 16px;
+  line-height: 2.0;
+  color: #333;
+  text-indent: 2em;
+  margin-bottom: 56px;
+  padding: 0 4px;
+}
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+@media (min-width: 720px) {
+  .gallery { grid-template-columns: repeat(3, 1fr); }
+}
+.photo {
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  cursor: zoom-in;
+  display: flex;
+  flex-direction: column;
+}
+.photo img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.3s;
+}
+.photo:hover img { transform: scale(1.02); }
+.photo .caption {
+  padding: 12px 14px;
+  font-size: 13px;
+  line-height: 1.7;
+  color: #555;
+  font-family: "PingFang SC", "Hiragino Sans GB", sans-serif;
+}
+.photo .caption .t {
+  font-weight: 600;
+  color: #2c2c2c;
+  display: block;
+  margin-bottom: 2px;
+}
+.lightbox {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.92);
+  z-index: 100;
+  align-items: center;
+  justify-content: center;
+  cursor: zoom-out;
+  padding: 20px;
+}
+.lightbox.show { display: flex; }
+.lightbox img {
+  max-width: 100%;
+  max-height: 90vh;
+  object-fit: contain;
+  box-shadow: 0 8px 60px rgba(0,0,0,0.5);
+}
+.footer {
+  text-align: center;
+  margin-top: 60px;
+  font-size: 12px;
+  color: #ccc;
+  letter-spacing: 2px;
+}
+.footer a { color: #999; text-decoration: none; }
+.footer a:hover { color: #555; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="crumbs">
+    <a href="../../">一叶琳旅程</a>
+    &nbsp;&middot;&nbsp;
+    <a href="../">晨间遛弯</a>
+  </div>
+  <h1>鸿博公园</h1>
+  <div class="meta">2026-04-10  &middot;  共 8 张</div>
+  <div class="narrative">2026年4月10日，又是一个适合在鸿博公园晨间遛弯的日子。电动车和单车静静地停在公园石碑前，天色还带着些许清晨的灰蒙蒙，却也透着一份难得的宁静。沿着小径深入，首先映入眼帘的是那一树金黄的连翘，花朵开得烂漫，枝头新叶初绽，远处还有粉色的花影若隐若现，一派春日好光景。我忍不住在花树前竖起大拇指，笑容大概和这春光一样灿烂吧，心里真是舒</div>
+  <div class="gallery">
+    <figure class="photo"><img src="images/2026-04-10-%E9%B8%BF%E5%8D%9A%E5%85%AC%E5%9B%AD-01.jpg" alt="一树金黄" loading="lazy"><figcaption class="caption"><span class="t">一树金黄</span>连翘花朵金黄烂漫，枝头新叶初绽，远处粉色花影，尽显春日</figcaption></figure><figure class="photo"><img src="images/2026-04-10-%E9%B8%BF%E5%8D%9A%E5%85%AC%E5%9B%AD-02.jpg" alt="花间笑颜" loading="lazy"><figcaption class="caption"><span class="t">花间笑颜</span>男子在黄粉花树前竖起大拇指，笑容灿烂，尽享春日美好。</figcaption></figure><figure class="photo"><img src="images/2026-04-10-%E9%B8%BF%E5%8D%9A%E5%85%AC%E5%9B%AD-03.jpg" alt="嫩黄新绿" loading="lazy"><figcaption class="caption"><span class="t">嫩黄新绿</span>枝头嫩叶初绽，浅黄翠绿交织，在微光中展现勃勃生机。</figcaption></figure><figure class="photo"><img src="images/2026-04-10-%E9%B8%BF%E5%8D%9A%E5%85%AC%E5%9B%AD-04.jpg" alt="园前小憩" loading="lazy"><figcaption class="caption"><span class="t">园前小憩</span>鸿博公园石碑前，电动车与单车停靠，灰蒙蒙天色下，一片宁静</figcaption></figure><figure class="photo"><img src="images/2026-04-10-%E9%B8%BF%E5%8D%9A%E5%85%AC%E5%9B%AD-05.jpg" alt="桃之夭夭" loading="lazy"><figcaption class="caption"><span class="t">桃之夭夭</span>春日暖阳下，粉色桃花盛开，嫩绿新叶点缀，地面野花点点，生机</figcaption></figure><figure class="photo"><img src="images/2026-04-10-%E9%B8%BF%E5%8D%9A%E5%85%AC%E5%9B%AD-06.jpg" alt="春日漫步" loading="lazy"><figcaption class="caption"><span class="t">春日漫步</span>红道蜿蜒入林，白桦树旁粉花点缀，绿意盎然，宁静宜人</figcaption></figure><figure class="photo"><img src="images/2026-04-10-%E9%B8%BF%E5%8D%9A%E5%85%AC%E5%9B%AD-07.jpg" alt="静水浮鸭" loading="lazy"><figcaption class="caption"><span class="t">静水浮鸭</span>白鸭悠然浮游于平静池水，枯树倒影清晰，岸边绿草点缀，冬日宁</figcaption></figure><figure class="photo"><img src="images/2026-04-10-%E9%B8%BF%E5%8D%9A%E5%85%AC%E5%9B%AD-08.jpg" alt="湖畔闲憩" loading="lazy"><figcaption class="caption"><span class="t">湖畔闲憩</span>脚搭木栏，静赏湖光树影，亭台倒映，春日宁静。</figcaption></figure>
+  </div>
+  <div class="footer">
+    <a href="../">← 返回 晨间遛弯</a>
+  </div>
+</div>
+<div class="lightbox"><img src="" alt=""></div>
+<script>
+(function(){
+  var box = document.querySelector('.lightbox');
+  var img = box.querySelector('img');
+  document.querySelectorAll('.photo img').forEach(function(el){
+    el.addEventListener('click', function(){
+      img.src = el.src;
+      box.classList.add('show');
+    });
+  });
+  box.addEventListener('click', function(){ box.classList.remove('show'); });
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape') box.classList.remove('show');
+  });
+})();
+</script>
+</body>
+</html>
