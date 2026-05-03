@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>首尔博物馆与美食 · 420美国旅行</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: "Songti SC", "STSong", "Noto Serif CJK SC", "Source Han Serif SC", serif;
+  background: #faf8f5;
+  color: #2c2c2c;
+  line-height: 1.9;
+  padding: 60px 20px 80px;
+}
+.wrap { max-width: 720px; margin: 0 auto; }
+.crumbs {
+  font-size: 13px;
+  color: #999;
+  margin-bottom: 32px;
+  letter-spacing: 1px;
+}
+.crumbs a { color: #888; text-decoration: none; }
+.crumbs a:hover { color: #555; }
+h1 {
+  font-size: 28px;
+  font-weight: 500;
+  letter-spacing: 3px;
+  color: #1a1a1a;
+  margin-bottom: 8px;
+}
+.meta {
+  font-size: 13px;
+  color: #999;
+  letter-spacing: 1px;
+  margin-bottom: 40px;
+}
+.narrative {
+  font-size: 16px;
+  line-height: 2.0;
+  color: #333;
+  text-indent: 2em;
+  margin-bottom: 56px;
+  padding: 0 4px;
+}
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+@media (min-width: 720px) {
+  .gallery { grid-template-columns: repeat(3, 1fr); }
+}
+.photo {
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  cursor: zoom-in;
+  display: flex;
+  flex-direction: column;
+}
+.photo img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.3s;
+}
+.photo:hover img { transform: scale(1.02); }
+.photo .caption {
+  padding: 12px 14px;
+  font-size: 13px;
+  line-height: 1.7;
+  color: #555;
+  font-family: "PingFang SC", "Hiragino Sans GB", sans-serif;
+}
+.photo .caption .t {
+  font-weight: 600;
+  color: #2c2c2c;
+  display: block;
+  margin-bottom: 2px;
+}
+.lightbox {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.92);
+  z-index: 100;
+  align-items: center;
+  justify-content: center;
+  cursor: zoom-out;
+  padding: 20px;
+}
+.lightbox.show { display: flex; }
+.lightbox img {
+  max-width: 100%;
+  max-height: 90vh;
+  object-fit: contain;
+  box-shadow: 0 8px 60px rgba(0,0,0,0.5);
+}
+.footer {
+  text-align: center;
+  margin-top: 60px;
+  font-size: 12px;
+  color: #ccc;
+  letter-spacing: 2px;
+}
+.footer a { color: #999; text-decoration: none; }
+.footer a:hover { color: #555; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="crumbs">
+    <a href="../../">一叶琳旅程</a>
+    &nbsp;&middot;&nbsp;
+    <a href="../">420美国旅行</a>
+  </div>
+  <h1>首尔博物馆与美食</h1>
+  <div class="meta">2026-04-19  &middot;  共 13 张</div>
+  <div class="narrative">2026年4月19日，我在首尔的旅程，仿佛一场穿越时空的漫游。清晨的延世大学，青松台旁导览牌上的森林地图与入园守则，是这片绿意盎然的初印象。</div>
+  <div class="gallery">
+    <figure class="photo"><img src="images/2026-04-19-%E9%A6%96%E5%B0%94%E5%8D%9A%E7%89%A9%E9%A6%86%E4%B8%8E%E7%BE%8E%E9%A3%9F-01.jpg" alt="校园绿意图" loading="lazy"><figcaption class="caption"><span class="t">校园绿意图</span>延世大学青松台导览牌展示森林地图与入园守则，绿意盎然</figcaption></figure><figure class="photo"><img src="images/2026-04-19-%E9%A6%96%E5%B0%94%E5%8D%9A%E7%89%A9%E9%A6%86%E4%B8%8E%E7%BE%8E%E9%A3%9F-02.jpg" alt="翠蔓古楼" loading="lazy"><figcaption class="caption"><span class="t">翠蔓古楼</span>爬满青藤的石楼在阳光下静谧典雅，繁花绿树环绕</figcaption></figure><figure class="photo"><img src="images/2026-04-19-%E9%A6%96%E5%B0%94%E5%8D%9A%E7%89%A9%E9%A6%86%E4%B8%8E%E7%BE%8E%E9%A3%9F-03.jpg" alt="斑驳林径" loading="lazy"><figcaption class="caption"><span class="t">斑驳林径</span>翠绿枫叶遮蔽林间小径，斑驳光影洒满地面，宁静清新</figcaption></figure><figure class="photo"><img src="images/2026-04-19-%E9%A6%96%E5%B0%94%E5%8D%9A%E7%89%A9%E9%A6%86%E4%B8%8E%E7%BE%8E%E9%A3%9F-04.jpg" alt="参天绿意" loading="lazy"><figcaption class="caption"><span class="t">参天绿意</span>阳光穿透翠绿林间，映照笔直参天古木，宁静清新</figcaption></figure><figure class="photo"><img src="images/2026-04-19-%E9%A6%96%E5%B0%94%E5%8D%9A%E7%89%A9%E9%A6%86%E4%B8%8E%E7%BE%8E%E9%A3%9F-05.jpg" alt="林间露天台" loading="lazy"><figcaption class="caption"><span class="t">林间露天台</span>绿树环抱的露天剧场，阳光洒在石阶上，宁静开阔</figcaption></figure><figure class="photo"><img src="images/2026-04-19-%E9%A6%96%E5%B0%94%E5%8D%9A%E7%89%A9%E9%A6%86%E4%B8%8E%E7%BE%8E%E9%A3%9F-06.jpg" alt="镌刻的岁月" loading="lazy"><figcaption class="caption"><span class="t">镌刻的岁月</span>刻有校友姓名与年份的花岗岩石阶，阳光下诉说往昔</figcaption></figure><figure class="photo"><img src="images/2026-04-19-%E9%A6%96%E5%B0%94%E5%8D%9A%E7%89%A9%E9%A6%86%E4%B8%8E%E7%BE%8E%E9%A3%9F-07.jpg" alt="云松映石径" loading="lazy"><figcaption class="caption"><span class="t">云松映石径</span>修剪整齐的云松沿石径错落而立，红花掩映，宁静</figcaption></figure><figure class="photo"><img src="images/2026-04-19-%E9%A6%96%E5%B0%94%E5%8D%9A%E7%89%A9%E9%A6%86%E4%B8%8E%E7%BE%8E%E9%A3%9F-08.jpg" alt="铭刻的谢意" loading="lazy"><figcaption class="caption"><span class="t">铭刻的谢意</span>绿植环绕的黑色捐赠碑，阳光下铭刻善举，庄重宁静</figcaption></figure><figure class="photo"><img src="images/2026-04-19-%E9%A6%96%E5%B0%94%E5%8D%9A%E7%89%A9%E9%A6%86%E4%B8%8E%E7%BE%8E%E9%A3%9F-09.jpg" alt="极简楼层志" loading="lazy"><figcaption class="caption"><span class="t">极简楼层志</span>韩国现代场馆极简导览牌，黑白金色调简洁明快</figcaption></figure><figure class="photo"><img src="images/2026-04-19-%E9%A6%96%E5%B0%94%E5%8D%9A%E7%89%A9%E9%A6%86%E4%B8%8E%E7%BE%8E%E9%A3%9F-10.jpg" alt="异乡的警示音" loading="lazy"><figcaption class="caption"><span class="t">异乡的警示音</span>手机弹出韩文寻人警报，描述走失老人特征，异国紧张与温情</figcaption></figure><figure class="photo"><img src="images/2026-04-19-%E9%A6%96%E5%B0%94%E5%8D%9A%E7%89%A9%E9%A6%86%E4%B8%8E%E7%BE%8E%E9%A3%9F-11.jpg" alt="机器人前合影" loading="lazy"><figcaption class="caption"><span class="t">机器人前合影</span>三人在卡通机器人背景前合影，笑容灿烂，轻松愉快</figcaption></figure><figure class="photo"><img src="images/2026-04-19-%E9%A6%96%E5%B0%94%E5%8D%9A%E7%89%A9%E9%A6%86%E4%B8%8E%E7%BE%8E%E9%A3%9F-12.jpg" alt="跨时空微笑" loading="lazy"><figcaption class="caption"><span class="t">跨时空微笑</span>游客与AI头像在末来感展厅合影，笑容灿烂，氛围温馨</figcaption></figure><figure class="photo"><img src="images/2026-04-19-%E9%A6%96%E5%B0%94%E5%8D%9A%E7%89%A9%E9%A6%86%E4%B8%8E%E7%BE%8E%E9%A3%9F-13.jpg" alt="明洞夜行" loading="lazy"><figcaption class="caption"><span class="t">明洞夜行</span>手机地图定格首尔明洞，夜晚微凉，繁华街巷寻美食</figcaption></figure>
+  </div>
+  <div class="footer">
+    <a href="../">← 返回 420美国旅行</a>
+  </div>
+</div>
+<div class="lightbox"><img src="" alt=""></div>
+<script>
+(function(){
+  var box = document.querySelector('.lightbox');
+  var img = box.querySelector('img');
+  document.querySelectorAll('.photo img').forEach(function(el){
+    el.addEventListener('click', function(){
+      img.src = el.src;
+      box.classList.add('show');
+    });
+  });
+  box.addEventListener('click', function(){ box.classList.remove('show'); });
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape') box.classList.remove('show');
+  });
+})();
+</script>
+</body>
+</html>

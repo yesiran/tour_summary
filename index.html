@@ -1,205 +1,66 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>一叶琳旅程 · Tour Summary</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
-      background: #faf8f5;
-      color: #333;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 40px 20px;
-    }
-    .container {
-      max-width: 600px;
-      width: 100%;
-    }
-    .title {
-      font-size: 28px;
-      font-weight: 300;
-      color: #2c2c2c;
-      text-align: center;
-      margin-bottom: 12px;
-      letter-spacing: 4px;
-    }
-    .subtitle {
-      font-size: 13px;
-      color: #999;
-      text-align: center;
-      margin-bottom: 48px;
-      letter-spacing: 2px;
-    }
-    .trips {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-    .trip-card {
-      background: #fff;
-      border-radius: 12px;
-      padding: 24px 28px;
-      text-decoration: none;
-      color: inherit;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-      transition: transform 0.2s, box-shadow 0.2s;
-      display: block;
-    }
-    .trip-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 6px 24px rgba(0,0,0,0.1);
-    }
-    .trip-name {
-      font-size: 17px;
-      font-weight: 500;
-      color: #1a1a1a;
-      margin-bottom: 6px;
-    }
-    .trip-date {
-      font-size: 13px;
-      color: #999;
-    }
-    .trip-desc {
-      font-size: 13px;
-      color: #888;
-      margin-top: 8px;
-      line-height: 1.6;
-    }
-    .arrow {
-      float: right;
-      color: #ccc;
-      font-size: 18px;
-      margin-top: 2px;
-    }
-    .footer {
-      text-align: center;
-      margin-top: 48px;
-      font-size: 12px;
-      color: #ccc;
-    }
-    
-    /* Trip Group Styles - 聚合页（可点击） */
-    a.trip-group {
-      display: block;
-      background: #fff;
-      border-radius: 16px;
-      padding: 24px 28px;
-      margin-bottom: 20px;
-      border: 1.5px solid #c4a97d;
-      box-shadow: 0 2px 12px rgba(124, 154, 106, 0.10);
-      position: relative;
-      text-decoration: none;
-      color: inherit;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-
-    a.trip-group:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 30px rgba(124, 154, 106, 0.18);
-    }
-
-    /* 左则竖条 */
-    a.trip-group::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 16px;
-      bottom: 16px;
-      width: 4px;
-      background: linear-gradient(180deg, #c4a97d, #8b6f47);
-      border-radius: 0 3px 3px 0;
-    }
-
-    /* 右上角"合集"标签 */
-    .trip-group-badge {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      font-size: 0.72rem;
-      color: #8b6f47;
-      background: #f8f0e3;
-      border: 1px solid #e0d5c7;
-      padding: 3px 10px;
-      border-radius: 20px;
-      letter-spacing: 0.1em;
-    }
-
-    .trip-group-icon {
-      font-size: 28px;
-      display: block;
-      margin-bottom: 6px;
-    }
-
-    .trip-group-title {
-      font-size: 19px;
-      font-weight: 600;
-      color: #2c1f14;
-      letter-spacing: 1.5px;
-      padding-right: 60px;
-    }
-
-    .trip-group-meta {
-      font-size: 12px;
-      color: #9a8b78;
-      margin-top: 5px;
-      letter-spacing: 1px;
-    }
-
-    .trip-group-desc {
-      font-size: 13px;
-      color: #7a6a5a;
-      line-height: 1.8;
-      margin-top: 12px;
-      padding: 0 4px;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>一叶琳旅程</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: "PingFang SC", "Hiragino Sans GB", sans-serif;
+  background: #faf8f5;
+  color: #333;
+  padding: 60px 20px;
+}
+.container { max-width: 600px; margin: 0 auto; }
+h1 { font-size: 28px; font-weight: 300; letter-spacing: 4px; text-align: center; margin-bottom: 12px; }
+.subtitle { font-size: 13px; color: #999; text-align: center; margin-bottom: 48px; letter-spacing: 2px; }
+.trips { display: flex; flex-direction: column; gap: 16px; }
+a.trip-group {
+  display: block;
+  background: #fff;
+  border-radius: 16px;
+  padding: 24px 28px;
+  border: 1.5px solid #c4a97d;
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+  box-shadow: 0 2px 12px rgba(124,154,106,0.10);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+a.trip-group:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(124,154,106,0.18); }
+a.trip-group::before {
+  content: ''; position: absolute; left: 0; top: 16px; bottom: 16px;
+  width: 4px; background: linear-gradient(180deg, #c4a97d, #8b6f47);
+  border-radius: 0 3px 3px 0;
+}
+.trip-group-badge {
+  position: absolute; top: 20px; right: 20px;
+  font-size: 0.72rem; color: #8b6f47; background: #f8f0e3;
+  border: 1px solid #e0d5c7; padding: 3px 10px; border-radius: 20px;
+  letter-spacing: 0.1em;
+}
+.trip-group-icon { font-size: 28px; display: block; margin-bottom: 6px; }
+.trip-group-title { font-size: 19px; font-weight: 600; color: #2c1f14; letter-spacing: 1.5px; padding-right: 60px; }
+.trip-group-meta { font-size: 12px; color: #9a8b78; margin-top: 5px; letter-spacing: 1px; }
+.footer { text-align: center; margin-top: 48px; font-size: 12px; color: #ccc; }
+</style>
 </head>
 <body>
-  <div class="container">
-    <h1 class="title">一叶琳旅程</h1>
-    <p class="subtitle">用脚步丈量世界，用镜头记录时光</p>
-
-    <div class="trips">
-      <!-- 420 美国西海岸之旅 - 聚合卡，点击跳攻略大页 -->
-      <a class="trip-group" href="./420%E7%BE%8E%E5%9B%BD%E8%A5%BF%E6%B5%B7%E5%B2%B8%E4%B9%8B%E6%97%85-2026.04/">
+<div class="container">
+  <h1>一叶琳旅程</h1>
+  <p class="subtitle">用脚步丈量世界，用镜头记录时光</p>
+  <div class="trips">
+      <!-- life-record:trips-managed:start -->
+      <a class="trip-group" href="./420%E7%BE%8E%E5%9B%BD%E6%97%85%E8%A1%8C/">
         <div class="trip-group-badge">合集</div>
-        <div class="trip-group-icon">🇺🇸</div>
-        <div class="trip-group-title">420 美国西海岸之旅</div>
-        <div class="trip-group-meta">2026年4月18日 - 5月7日 · 20天</div>
-        <div class="trip-group-desc">首尔 → 西雅图 → 旧金山 → 优胜美地 → 一号公路 → 洛杉矶。第一次踏上美国，带着母亲和琳，2500英里的公路与海岸线</div>
+        <div class="trip-group-icon">📔</div>
+        <div class="trip-group-title">420美国旅行</div>
+        <div class="trip-group-meta">2026-04-18 ~ 2026-04-27 · 6 条记录</div>
       </a>
-      <a class="trip-card" href="./%E6%99%A8%E9%97%B4%E9%81%9B%E5%BC%AF-2026.04/">
-        <span class="arrow">→</span>
-        <div class="trip-name">晨间遛弯 · 鸿博公园</div>
-        <div class="trip-date">2026年4月10日 · 清晨七时</div>
-        <div class="trip-desc">连翘金黄，桃花粉嫩，白鸭游弋，池畔压腿。那天早晨，他想试着无目的地走一段路 🌿</div>
-      </a>
-      <a class="trip-card" href="./%E6%97%A5%E5%87%BA-2026.04/">
-        <span class="arrow">→</span>
-        <div class="trip-name">晨光记</div>
-        <div class="trip-date">2026年4月7日 · 清晨六时</div>
-        <div class="trip-desc">中国尊破晓、金色时刻、朝阳入书房。早起三帖，生活很幸福 🌅</div>
-      </a>
-      <a class="trip-card" href="./%E9%B8%BF%E5%8D%9A%E5%85%AC%E5%9B%AD%E4%B8%8E%E7%90%B3%E5%A6%87%E9%81%9B%E5%BC%AF-2026.04/">
-        <span class="arrow">→</span>
-        <div class="trip-name">鸿博公园与琳妈遛弯</div>
-        <div class="trip-date">2026年4月5日 · 清明时节</div>
-        <div class="trip-desc">梨花、连翘、诸葛菜、紫叶李，与琳妈一起的春日漫步 🌸</div>
-      </a>
-      <a class="trip-card" href="./%E4%B8%AD%E5%9B%BD%E5%8D%9A%E7%89%A9%E9%A6%86-2026.04/">
-        <span class="arrow">→</span>
-        <div class="trip-name">中国博物馆之旅</div>
-        <div class="trip-date">2026年4月4日</div>
-        <div class="trip-desc">穿越5000年的沉思，青铜重器、商周陶俑、唐三彩... 🏛️</div>
-      </a>
-    </div>
-
-    <p class="footer">一叶琳旅程 · Tour Summary</p>
+      <!-- life-record:trips-managed:end -->
   </div>
+  <p class="footer">一叶琳旅程</p>
+</div>
 </body>
 </html>

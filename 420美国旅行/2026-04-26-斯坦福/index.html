@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>斯坦福 · 420美国旅行</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: "Songti SC", "STSong", "Noto Serif CJK SC", "Source Han Serif SC", serif;
+  background: #faf8f5;
+  color: #2c2c2c;
+  line-height: 1.9;
+  padding: 60px 20px 80px;
+}
+.wrap { max-width: 720px; margin: 0 auto; }
+.crumbs {
+  font-size: 13px;
+  color: #999;
+  margin-bottom: 32px;
+  letter-spacing: 1px;
+}
+.crumbs a { color: #888; text-decoration: none; }
+.crumbs a:hover { color: #555; }
+h1 {
+  font-size: 28px;
+  font-weight: 500;
+  letter-spacing: 3px;
+  color: #1a1a1a;
+  margin-bottom: 8px;
+}
+.meta {
+  font-size: 13px;
+  color: #999;
+  letter-spacing: 1px;
+  margin-bottom: 40px;
+}
+.narrative {
+  font-size: 16px;
+  line-height: 2.0;
+  color: #333;
+  text-indent: 2em;
+  margin-bottom: 56px;
+  padding: 0 4px;
+}
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+@media (min-width: 720px) {
+  .gallery { grid-template-columns: repeat(3, 1fr); }
+}
+.photo {
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  cursor: zoom-in;
+  display: flex;
+  flex-direction: column;
+}
+.photo img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.3s;
+}
+.photo:hover img { transform: scale(1.02); }
+.photo .caption {
+  padding: 12px 14px;
+  font-size: 13px;
+  line-height: 1.7;
+  color: #555;
+  font-family: "PingFang SC", "Hiragino Sans GB", sans-serif;
+}
+.photo .caption .t {
+  font-weight: 600;
+  color: #2c2c2c;
+  display: block;
+  margin-bottom: 2px;
+}
+.lightbox {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.92);
+  z-index: 100;
+  align-items: center;
+  justify-content: center;
+  cursor: zoom-out;
+  padding: 20px;
+}
+.lightbox.show { display: flex; }
+.lightbox img {
+  max-width: 100%;
+  max-height: 90vh;
+  object-fit: contain;
+  box-shadow: 0 8px 60px rgba(0,0,0,0.5);
+}
+.footer {
+  text-align: center;
+  margin-top: 60px;
+  font-size: 12px;
+  color: #ccc;
+  letter-spacing: 2px;
+}
+.footer a { color: #999; text-decoration: none; }
+.footer a:hover { color: #555; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="crumbs">
+    <a href="../../">一叶琳旅程</a>
+    &nbsp;&middot;&nbsp;
+    <a href="../">420美国旅行</a>
+  </div>
+  <h1>斯坦福</h1>
+  <div class="meta">2026-04-26  &middot;  共 11 张</div>
+  <div class="narrative">2026年4月26日，踏入斯坦福，首先感受到的便是那份由古朴砂岩建筑和深邃拱廊带来的宁静。阳光透过回廊，在石径上洒下斑驳的光影，仿佛连时间也在这里慢</div>
+  <div class="gallery">
+    <figure class="photo"><img src="images/2026-04-26-%E6%96%AF%E5%9D%A6%E7%A6%8F-01.jpg" alt="石径回廊" loading="lazy"><figcaption class="caption"><span class="t">石径回廊</span>斯坦福古朴砂岩建筑，深邃拱廊连接校园，氛围宁静且充满学术气息</figcaption></figure><figure class="photo"><img src="images/2026-04-26-%E6%96%AF%E5%9D%A6%E7%A6%8F-02.jpg" alt="红瓦映翠微" loading="lazy"><figcaption class="caption"><span class="t">红瓦映翠微</span>斯坦福标志性的红瓦黄墙建筑在绿树映衬下，显得宁静而典雅，透着浓厚的学术气息</figcaption></figure><figure class="photo"><img src="images/2026-04-26-%E6%96%AF%E5%9D%A6%E7%A6%8F-03.jpg" alt="棕榈映红瓦" loading="lazy"><figcaption class="caption"><span class="t">棕榈映红瓦</span>棕榈树掩映着红瓦黄墙的校园古建，草坪静谧无行人，氛围悠闲典雅</figcaption></figure><figure class="photo"><img src="images/2026-04-26-%E6%96%AF%E5%9D%A6%E7%A6%8F-04.jpg" alt="蓝衣姐妹行" loading="lazy"><figcaption class="caption"><span class="t">蓝衣姐妹行</span>两位女士身穿亮眼蓝色卫衣，在绿意盎然的校园建筑前漫步合影</figcaption></figure><figure class="photo"><img src="images/2026-04-26-%E6%96%AF%E5%9D%A6%E7%A6%8F-05.jpg" alt="斯坦福掠影" loading="lazy"><figcaption class="caption"><span class="t">斯坦福掠影</span>斯坦福大学标志性的胡佛塔与砂岩建筑，蓝天白云映衬下红瓦黄墙格外庄重</figcaption></figure><figure class="photo"><img src="images/2026-04-26-%E6%96%AF%E5%9D%A6%E7%A6%8F-06.jpg" alt="斯坦福午后" loading="lazy"><figcaption class="caption"><span class="t">斯坦福午后</span>阳光明媚的斯坦福大学纪念礼堂前，喷泉水花四溅，骑行者与游客在标志性的黄墙红瓦建筑前构成了一幅和谐的校园美景</figcaption></figure><figure class="photo"><img src="images/2026-04-26-%E6%96%AF%E5%9D%A6%E7%A6%8F-07.jpg" alt="云下漫步" loading="lazy"><figcaption class="caption"><span class="t">云下漫步</span>斯坦福圆形花园与开阔草坪，蓝天白云绿树交相辉映，宁静惬意的午后校园美景</figcaption></figure><figure class="photo"><img src="images/2026-04-26-%E6%96%AF%E5%9D%A6%E7%A6%8F-08.jpg" alt="时光回廊" loading="lazy"><figcaption class="caption"><span class="t">时光回廊</span>斯坦福大学标志性黄砂岩拱廊，深邃透视感与光影交织，宁静庄重的学术氛围</figcaption></figure><figure class="photo"><img src="images/2026-04-26-%E6%96%AF%E5%9D%A6%E7%A6%8F-09.jpg" alt="登顶同乐" loading="lazy"><figcaption class="caption"><span class="t">登顶同乐</span>三位游客身着统一深蓝连帽衫在塔顶观景台灿烂合影点赞，背景红瓦绿树与蓝天白云</figcaption></figure><figure class="photo"><img src="images/2026-04-26-%E6%96%AF%E5%9D%A6%E7%A6%8F-10.jpg" alt="凝望地狱门" loading="lazy"><figcaption class="caption"><span class="t">凝望地狱门</span>斯坦福校园罗丹《地狱之门》青铜巨作，门楣思想者俯瞰众生，蓝天白云下庄严震撼</figcaption></figure><figure class="photo"><img src="images/2026-04-26-%E6%96%AF%E5%9D%A6%E7%A6%8F-11.jpg" alt="云下斯坦福" loading="lazy"><figcaption class="caption"><span class="t">云下斯坦福</span>斯坦福椭圆广场与广阔草坪，砂岩红瓦建筑映衬蓝天白云，悠闲午后校园氛围</figcaption></figure>
+  </div>
+  <div class="footer">
+    <a href="../">← 返回 420美国旅行</a>
+  </div>
+</div>
+<div class="lightbox"><img src="" alt=""></div>
+<script>
+(function(){
+  var box = document.querySelector('.lightbox');
+  var img = box.querySelector('img');
+  document.querySelectorAll('.photo img').forEach(function(el){
+    el.addEventListener('click', function(){
+      img.src = el.src;
+      box.classList.add('show');
+    });
+  });
+  box.addEventListener('click', function(){ box.classList.remove('show'); });
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape') box.classList.remove('show');
+  });
+})();
+</script>
+</body>
+</html>
