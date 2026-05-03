@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>中国博物馆 · 北京逛逛</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: "Songti SC", "STSong", "Noto Serif CJK SC", "Source Han Serif SC", serif;
+  background: #faf8f5;
+  color: #2c2c2c;
+  line-height: 1.9;
+  padding: 60px 20px 80px;
+}
+.wrap { max-width: 720px; margin: 0 auto; }
+.crumbs {
+  font-size: 13px;
+  color: #999;
+  margin-bottom: 32px;
+  letter-spacing: 1px;
+}
+.crumbs a { color: #888; text-decoration: none; }
+.crumbs a:hover { color: #555; }
+h1 {
+  font-size: 28px;
+  font-weight: 500;
+  letter-spacing: 3px;
+  color: #1a1a1a;
+  margin-bottom: 8px;
+}
+.meta {
+  font-size: 13px;
+  color: #999;
+  letter-spacing: 1px;
+  margin-bottom: 40px;
+}
+.narrative {
+  font-size: 16px;
+  line-height: 2.0;
+  color: #333;
+  text-indent: 2em;
+  margin-bottom: 56px;
+  padding: 0 4px;
+}
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+@media (min-width: 720px) {
+  .gallery { grid-template-columns: repeat(3, 1fr); }
+}
+.photo {
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  cursor: zoom-in;
+  display: flex;
+  flex-direction: column;
+}
+.photo img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.3s;
+}
+.photo:hover img { transform: scale(1.02); }
+.photo .caption {
+  padding: 12px 14px;
+  font-size: 13px;
+  line-height: 1.7;
+  color: #555;
+  font-family: "PingFang SC", "Hiragino Sans GB", sans-serif;
+}
+.photo .caption .t {
+  font-weight: 600;
+  color: #2c2c2c;
+  display: block;
+  margin-bottom: 2px;
+}
+.lightbox {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.92);
+  z-index: 100;
+  align-items: center;
+  justify-content: center;
+  cursor: zoom-out;
+  padding: 20px;
+}
+.lightbox.show { display: flex; }
+.lightbox img {
+  max-width: 100%;
+  max-height: 90vh;
+  object-fit: contain;
+  box-shadow: 0 8px 60px rgba(0,0,0,0.5);
+}
+.footer {
+  text-align: center;
+  margin-top: 60px;
+  font-size: 12px;
+  color: #ccc;
+  letter-spacing: 2px;
+}
+.footer a { color: #999; text-decoration: none; }
+.footer a:hover { color: #555; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="crumbs">
+    <a href="../../">一叶琳旅程</a>
+    &nbsp;&middot;&nbsp;
+    <a href="../">北京逛逛</a>
+  </div>
+  <h1>中国博物馆</h1>
+  <div class="meta">2026-04-04  &middot;  共 45 张</div>
+  <div class="narrative">四月四日，春意渐浓，我踏进了北京的这座历史殿堂。一进展厅，便被那些沉甸甸的青铜器所吸引。它们静默地躺在展柜里，仿佛在凝思，孩童们好奇地凑上前，</div>
+  <div class="gallery">
+    <figure class="photo"><img src="images/2026-04-04-%E4%B8%AD%E5%9B%BD%E5%8D%9A%E7%89%A9%E9%A6%86-01.jpg" alt="古铜凝思" loading="lazy"><figcaption class="caption"><span class="t">古铜凝思</span>博物馆内，古朴青铜盘静置展柜，众人驻足凝望，孩童好奇感受历史厚重。</figcaption></figure><figure class="photo"><img src="images/2026-04-04-%E4%B8%AD%E5%9B%BD%E5%8D%9A%E7%89%A9%E9%A6%86-02.jpg" alt="青铜虎纹" loading="lazy"><figcaption class="caption"><span class="t">青铜虎纹</span>博物馆内，商代虎纹青铜铙静置展台，精美纹饰承载千年文明，庄</figcaption></figure><figure class="photo"><img src="images/2026-04-04-%E4%B8%AD%E5%9B%BD%E5%8D%9A%E7%89%A9%E9%A6%86-03.jpg" alt="古物新影" loading="lazy"><figcaption class="caption"><span class="t">古物新影</span>青铜方尊静卧展柜，游客举手机争相拍摄，古今光影交织。</figcaption></figure><figure class="photo"><img src="images/2026-04-04-%E4%B8%AD%E5%9B%BD%E5%8D%9A%E7%89%A9%E9%A6%86-04.jpg" alt="龙虎之尊" loading="lazy"><figcaption class="caption"><span class="t">龙虎之尊</span>精美龙虎纹青铜尊，承载千年历史，静默诉说古老文明。</figcaption></figure><figure class="photo"><img src="images/2026-04-04-%E4%B8%AD%E5%9B%BD%E5%8D%9A%E7%89%A9%E9%A6%86-05.jpg" alt="古蜀之眼" loading="lazy"><figcaption class="caption"><span class="t">古蜀之眼</span>三星堆青铜面具，造型独特，凝视千年古蜀文明的神秘。</figcaption></figure><figure class="photo"><img src="images/2026-04-04-%E4%B8%AD%E5%9B%BD%E5%8D%9A%E7%89%A9%E9%A6%86-06.jpg" alt="鸭尊古韵" loading="lazy"><figcaption class="caption"><span class="t">鸭尊古韵</span>三星堆青铜酒尊，器身纹饰精美，鸭形小兽点缀其间，尽显商</figcaption></figure><figure class="photo"><img src="images/2026-04-04-%E4%B8%AD%E5%9B%BD%E5%8D%9A%E7%89%A9%E9%A6%86-07.jpg" alt="青铜记忆" loading="lazy"><figcaption class="caption"><span class="t">青铜记忆</span>战国青铜壶静立展台，斑驳纹理诉说千年往事，庄重深沉。</figcaption></figure><figure class="photo"><img src="images/2026-04-04-%E4%B8%AD%E5%9B%BD%E5%8D%9A%E7%89%A9%E9%A6%86-08.jpg" alt="古剑遗韵" loading="lazy"><figcaption class="caption"><span class="t">古剑遗韵</span>展柜中三柄青铜古剑，锈迹斑驳，尽显春秋吴越争霸的沧桑。</figcaption></figure><figure class="photo"><img src="images/2026-04-04-%E4%B8%AD%E5%9B%BD%E5%8D%9A%E7%89%A9%E9%A6%86-09.jpg" alt="青铜古韵" loading="lazy"><figcaption class="caption"><span class="t">青铜古韵</span>博物馆内，精美青铜器引人驻足，玻璃映出观者身影。</figcaption></figure><figure class="photo"><img src="images/2026-04-04-%E4%B8%AD%E5%9B%BD%E5%8D%9A%E7%89%A9%E9%A6%86-10.jpg" alt="青铜古韵" loading="lazy"><figcaption class="caption"><span class="t">青铜古韵</span>曾仲方壶静立展柜，青绿铜锈述说千年，引人驻足细品。</figcaption></figure><figure class="photo"><img src="images/2026-04-04-%E4%B8%AD%E5%9B%BD%E5%8D%9A%E7%89%A9%E9%A6%86-11.jpg" alt="布币春秋" loading="lazy"><figcaption class="caption"><span class="t">布币春秋</span>博物馆展柜中，古朴青铜布币，形制独特，承载千年历史沉淀。&quot;</figcaption></figure><figure class="photo"><img src="images/2026-04-04-%E4%B8%AD%E5%9B%BD%E5%8D%9A%E7%89%A9%E9%A6%86-12.jpg" alt="虎节春秋" loading="lazy"><figcaption class="caption"><span class="t">虎节春秋</span>博物馆内，战国青铜虎节静卧展柜，微光映照，尽显历史沉淀。</figcaption></figure><figure class="photo"><img src="images/2026-04-04-%E4%B8%AD%E5%9B%BD%E5%8D%9A%E7%89%A9%E9%A6%86-13.jpg" alt="编钟古韵" loading="lazy"><figcaption class="caption"><span class="t">编钟古韵</span>博物馆内，一排青铜编钟静默陈列，仿佛能听到千年古乐回响。</figcaption></figure><figure class="photo"><img src="images/2026-04-04-%E4%B8%AD%E5%9B%BD%E5%8D%9A%E7%89%A9%E9%A6%86-14.jpg" alt="青铜古韵" loading="lazy"><figcaption class="caption"><span class="t">青铜古韵</span>博物馆内，青铜方壶纹饰精美，灯光下静述千年历史，引人沉思。</figcaption></figure><figure class="photo"><img src="images/2026-04-04-%E4%B8%AD%E5%9B%BD%E5%8D%9A%E7%89%A9%E9%A6%86-15.jpg" alt="玉衣静卧" loading="lazy"><figcaption class="caption"><span class="t">玉衣静卧</span>古老玉衣静卧展柜，观众驻足凝视，手机记录历史瞬间。</figcaption></figure><figure class="photo"><img src="images/2026-04-04-%E4%B8%AD%E5%9B%BD%E5%8D%9A%E7%89%A9%E9%A6%86-16.jpg" alt="铜雁古韵" loading="lazy"><figcaption class="caption"><span class="t">铜雁古韵</span>青铜雁灯静立展柜，孩童与游人凝神细看，古韵悠长。</figcaption></figure><figure class="photo"><img src="images/2026-04-04-%E4%B8%AD%E5%9B%BD%E5%8D%9A%E7%89%A9%E9%A6%86-17.jpg" alt="千年雅趣" loading="lazy"><figcaption class="caption"><span class="t">千年雅趣</span>博物馆展出三尊汉代陶俑，侍女奉食、备餐、奏乐，姿态生动，</figcaption></figure><figure class="photo"><img src="images/2026-04-04-%E4%B8%AD%E5%9B%BD%E5%8D%9A%E7%89%A9%E9%A6%86-18.jpg" alt="童心探古" loading="lazy"><figcaption class="caption"><span class="t">童心探古</span>小女孩好奇指点展品，男孩沉思。玻璃内外，古物与童真在此相遇。</figcaption></figure><figure class="photo"><img src="images/2026-04-04-%E4%B8%AD%E5%9B%BD%E5%8D%9A%E7%89%A9%E9%A6%86-19.jpg" alt="陶亭雅趣" loading="lazy"><figcaption class="caption"><span class="t">陶亭雅趣</span>绿釉陶水亭，人物动物栩栩如生，尽显汉代闲适雅致。</figcaption></figure><figure class="photo"><img src="images/2026-04-04-%E4%B8%AD%E5%9B%BD%E5%8D%9A%E7%89%A9%E9%A6%86-20.jpg" alt="山林野趣" loading="lazy"><figcaption class="caption"><span class="t">山林野趣</span>古老石刻浮雕，描绘山野风光与生灵，充满原始生命力与自然和谐。</figcaption></figure><figure class="photo"><img src="images/2026-04-04-%E4%B8%AD%E5%9B%BD%E5%8D%9A%E7%89%A9%E9%A6%86-21.jpg" alt="古韵杂技" loading="lazy"><figcaption class="caption"><span class="t">古韵杂技</span>汉代画像砖，刻画车马杂技与出行，生动再现古时风情。</figcaption></figure><figure class="photo"><img src="images/2026-04-04-%E4%B8%AD%E5%9B%BD%E5%8D%9A%E7%89%A9%E9%A6%86-22.jpg" alt="千年笑颜" loading="lazy"><figcaption class="caption"><span class="t">千年笑颜</span>展柜中陶俑笑颜千年，观众举手机细赏，古今在此交汇。</figcaption></figure><figure class="photo"><img src="images/2026-04-04-%E4%B8%AD%E5%9B%BD%E5%8D%9A%E7%89%A9%E9%A6%86-23.jpg" alt="奇趣陶俑" loading="lazy"><figcaption class="caption"><span class="t">奇趣陶俑</span>古朴陶俑造型夸张，神态诙谐，长鼻大腹，充满远古的神秘与趣味</figcaption></figure><figure class="photo"><img src="images/2026-04-04-%E4%B8%AD%E5%9B%BD%E5%8D%9A%E7%89%A9%E9%A6%86-24.jpg" alt="微观世界" loading="lazy"><figcaption class="caption"><span class="t">微观世界</span>博物馆内，斑驳青铜器上微缩人物与屋檐，细节精巧，尽显古朴韵</figcaption></figure><figure class="photo"><img src="images/2026-04-04-%E4%B8%AD%E5%9B%BD%E5%8D%9A%E7%89%A9%E9%A6%86-25.jpg" alt="俑马行" loading="lazy"><figcaption class="caption"><span class="t">俑马行</span>博物馆内陶俑骑兵与步兵列阵，神态各异，古韵悠长。</figcaption></figure><figure class="photo"><img src="images/2026-04-04-%E4%B8%AD%E5%9B%BD%E5%8D%9A%E7%89%A9%E9%A6%86-26.jpg" alt="瓷羊静卧" loading="lazy"><figcaption class="caption"><span class="t">瓷羊静卧</span>博物馆内，三国青瓷羊形烛台，釉色温润，造型雅致，尽显古朴韵味</figcaption></figure><figure class="photo"><img src="images/2026-04-04-%E4%B8%AD%E5%9B%BD%E5%8D%9A%E7%89%A9%E9%A6%86-27.jpg" alt="古韵新影" loading="lazy"><figcaption class="caption"><span class="t">古韵新影</span>博物馆内，精美古瓷静置，观众倒影与光影交织，沉浸历史韵味。</figcaption></figure><figure class="photo"><img src="images/2026-04-04-%E4%B8%AD%E5%9B%BD%E5%8D%9A%E7%89%A9%E9%A6%86-28.jpg" alt="丝路驼铃" loading="lazy"><figcaption class="caption"><span class="t">丝路驼铃</span>唐三彩骆驼载乐团，胡人弹琵琶，丝路风情跃然眼前。</figcaption></figure><figure class="photo"><img src="images/2026-04-04-%E4%B8%AD%E5%9B%BD%E5%8D%9A%E7%89%A9%E9%A6%86-29.jpg" alt="雄姿浮雕" loading="lazy"><figcaption class="caption"><span class="t">雄姿浮雕</span>古朴石刻浮雕，威武神将手持长剑，脚踏双牛，凤凰展翅，尽显</figcaption></figure><figure class="photo"><img src="images/2026-04-04-%E4%B8%AD%E5%9B%BD%E5%8D%9A%E7%89%A9%E9%A6%86-30.jpg" alt="翠衣唐韵" loading="lazy"><figcaption class="caption"><span class="t">翠衣唐韵</span>盛唐三彩侍女，绿釉斑斓，神情宁静，穿越千年时光。</figcaption></figure><figure class="photo"><img src="images/2026-04-04-%E4%B8%AD%E5%9B%BD%E5%8D%9A%E7%89%A9%E9%A6%86-31.jpg" alt="华彩异兽" loading="lazy"><figcaption class="caption"><span class="t">华彩异兽</span>博物馆内，古老三彩镇墓兽造型繁复，色彩斑斓，尽显千年守护的威严与</figcaption></figure><figure class="photo"><img src="images/2026-04-04-%E4%B8%AD%E5%9B%BD%E5%8D%9A%E7%89%A9%E9%A6%86-32.jpg" alt="盛唐遗韵" loading="lazy"><figcaption class="caption"><span class="t">盛唐遗韵</span>博物馆中，唐三彩骏马气势非凡，观众驻足凝视，沉浸古老艺术。</figcaption></figure><figure class="photo"><img src="images/2026-04-04-%E4%B8%AD%E5%9B%BD%E5%8D%9A%E7%89%A9%E9%A6%86-33.jpg" alt="宝相" loading="lazy"><figcaption class="caption"><span class="t">宝相</span>博物馆内精美铜像，菩萨姿态闲适，光环映衬下更显庄严宁静。</figcaption></figure><figure class="photo"><img src="images/2026-04-04-%E4%B8%AD%E5%9B%BD%E5%8D%9A%E7%89%A9%E9%A6%86-34.jpg" alt="玫瑰紫韵" loading="lazy"><figcaption class="caption"><span class="t">玫瑰紫韵</span>宋代钧窑玫瑰紫釉花盆，釉色流光溢彩，古朴典雅，尽显千年风</figcaption></figure><figure class="photo"><img src="images/2026-04-04-%E4%B8%AD%E5%9B%BD%E5%8D%9A%E7%89%A9%E9%A6%86-35.jpg" alt="青铜叠影" loading="lazy"><figcaption class="caption"><span class="t">青铜叠影</span>博物馆内，青铜古器层叠陈列，纹饰精美，尽显历史沉淀与匠心</figcaption></figure><figure class="photo"><img src="images/2026-04-04-%E4%B8%AD%E5%9B%BD%E5%8D%9A%E7%89%A9%E9%A6%86-36.jpg" alt="器物对话" loading="lazy"><figcaption class="caption"><span class="t">器物对话</span>博物馆内，两件精美瓷器静置展台，光影交错，诉说千年故事。</figcaption></figure><figure class="photo"><img src="images/2026-04-04-%E4%B8%AD%E5%9B%BD%E5%8D%9A%E7%89%A9%E9%A6%86-37.jpg" alt="蟠龙玉玺" loading="lazy"><figcaption class="caption"><span class="t">蟠龙玉玺</span>清代青玉蟠龙玺，静卧展柜，尽显帝王威严与历史厚重。</figcaption></figure><figure class="photo"><img src="images/2026-04-04-%E4%B8%AD%E5%9B%BD%E5%8D%9A%E7%89%A9%E9%A6%86-38.jpg" alt="琉璃燕语" loading="lazy"><figcaption class="caption"><span class="t">琉璃燕语</span>深蓝瓷尊白燕翩跹，金彩流光，映照参观者身影，古今交融。</figcaption></figure><figure class="photo"><img src="images/2026-04-04-%E4%B8%AD%E5%9B%BD%E5%8D%9A%E7%89%A9%E9%A6%86-39.jpg" alt="童眸古韵" loading="lazy"><figcaption class="caption"><span class="t">童眸古韵</span>孩子们凝视精美粉彩转心瓶，古韵与童真在博物馆交汇，充满求知氛围。</figcaption></figure><figure class="photo"><img src="images/2026-04-04-%E4%B8%AD%E5%9B%BD%E5%8D%9A%E7%89%A9%E9%A6%86-40.jpg" alt="古韵星盘" loading="lazy"><figcaption class="caption"><span class="t">古韵星盘</span>斑驳铜铸天球仪，星辰密布，承载清代天文智慧与时间。</figcaption></figure><figure class="photo"><img src="images/2026-04-04-%E4%B8%AD%E5%9B%BD%E5%8D%9A%E7%89%A9%E9%A6%86-41.jpg" alt="祭祀神人" loading="lazy"><figcaption class="caption"><span class="t">祭祀神人</span>古老青铜神像，造型独特，在幽暗展厅中散发神秘力量。</figcaption></figure><figure class="photo"><img src="images/2026-04-04-%E4%B8%AD%E5%9B%BD%E5%8D%9A%E7%89%A9%E9%A6%86-42.jpg" alt="千年凝视" loading="lazy"><figcaption class="caption"><span class="t">千年凝视</span>古老青铜人头像，眼神深邃，在幽暗展厅中散发千年神秘气息。</figcaption></figure><figure class="photo"><img src="images/2026-04-04-%E4%B8%AD%E5%9B%BD%E5%8D%9A%E7%89%A9%E9%A6%86-43.jpg" alt="立人凝视" loading="lazy"><figcaption class="caption"><span class="t">立人凝视</span>博物馆内，青铜立人像庄严矗立，面容神秘，古蜀文明的独特魅力。</figcaption></figure><figure class="photo"><img src="images/2026-04-04-%E4%B8%AD%E5%9B%BD%E5%8D%9A%E7%89%A9%E9%A6%86-44.jpg" alt="岁月青铜" loading="lazy"><figcaption class="caption"><span class="t">岁月青铜</span>幽暗展柜中，商代青铜鸮尊人像，造型奇特，纹饰精美，古老神秘</figcaption></figure><figure class="photo"><img src="images/2026-04-04-%E4%B8%AD%E5%9B%BD%E5%8D%9A%E7%89%A9%E9%A6%86-45.jpg" alt="青铜神树" loading="lazy"><figcaption class="caption"><span class="t">青铜神树</span>博物馆内，青铜神树巍然矗立，枝头鸟兽栩栩如生，尽显古老文明魅力</figcaption></figure>
+  </div>
+  <div class="footer">
+    <a href="../">← 返回 北京逛逛</a>
+  </div>
+</div>
+<div class="lightbox"><img src="" alt=""></div>
+<script>
+(function(){
+  var box = document.querySelector('.lightbox');
+  var img = box.querySelector('img');
+  document.querySelectorAll('.photo img').forEach(function(el){
+    el.addEventListener('click', function(){
+      img.src = el.src;
+      box.classList.add('show');
+    });
+  });
+  box.addEventListener('click', function(){ box.classList.remove('show'); });
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape') box.classList.remove('show');
+  });
+})();
+</script>
+</body>
+</html>
