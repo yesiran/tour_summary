@@ -7,14 +7,26 @@
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body {
-  font-family: "PingFang SC", "Hiragino Sans GB", sans-serif;
+  font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
   background: #faf8f5;
   color: #333;
   padding: 60px 20px;
 }
 .container { max-width: 600px; margin: 0 auto; }
-h1 { font-size: 28px; font-weight: 300; letter-spacing: 4px; text-align: center; margin-bottom: 12px; }
-.subtitle { font-size: 13px; color: #999; text-align: center; margin-bottom: 48px; letter-spacing: 2px; }
+h1 {
+  font-size: 28px;
+  font-weight: 300;
+  letter-spacing: 4px;
+  text-align: center;
+  margin-bottom: 12px;
+}
+.subtitle {
+  font-size: 13px;
+  color: #999;
+  text-align: center;
+  margin-bottom: 48px;
+  letter-spacing: 2px;
+}
 .trips { display: flex; flex-direction: column; gap: 16px; }
 a.trip-group {
   display: block;
@@ -28,22 +40,56 @@ a.trip-group {
   box-shadow: 0 2px 12px rgba(124,154,106,0.10);
   transition: transform 0.2s, box-shadow 0.2s;
 }
-a.trip-group:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(124,154,106,0.18); }
+a.trip-group:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(124,154,106,0.18);
+}
 a.trip-group::before {
-  content: ''; position: absolute; left: 0; top: 16px; bottom: 16px;
-  width: 4px; background: linear-gradient(180deg, #c4a97d, #8b6f47);
+  content: '';
+  position: absolute;
+  left: 0; top: 16px; bottom: 16px;
+  width: 4px;
+  background: linear-gradient(180deg, #c4a97d, #8b6f47);
   border-radius: 0 3px 3px 0;
 }
 .trip-group-badge {
-  position: absolute; top: 20px; right: 20px;
-  font-size: 0.72rem; color: #8b6f47; background: #f8f0e3;
-  border: 1px solid #e0d5c7; padding: 3px 10px; border-radius: 20px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 0.72rem;
+  color: #8b6f47;
+  background: #f8f0e3;
+  border: 1px solid #e0d5c7;
+  padding: 3px 10px;
+  border-radius: 20px;
   letter-spacing: 0.1em;
 }
 .trip-group-icon { font-size: 28px; display: block; margin-bottom: 6px; }
-.trip-group-title { font-size: 19px; font-weight: 600; color: #2c1f14; letter-spacing: 1.5px; padding-right: 60px; }
-.trip-group-meta { font-size: 12px; color: #9a8b78; margin-top: 5px; letter-spacing: 1px; }
-.footer { text-align: center; margin-top: 48px; font-size: 12px; color: #ccc; }
+.trip-group-title {
+  font-size: 19px;
+  font-weight: 600;
+  color: #2c1f14;
+  letter-spacing: 1.5px;
+  padding-right: 60px;
+}
+.trip-group-meta {
+  font-size: 12px;
+  color: #9a8b78;
+  margin-top: 5px;
+  letter-spacing: 1px;
+}
+.placeholder {
+  text-align: center;
+  color: #ccc;
+  padding: 60px 0;
+  font-size: 14px;
+}
+.footer {
+  text-align: center;
+  margin-top: 48px;
+  font-size: 12px;
+  color: #ccc;
+}
 </style>
 </head>
 <body>
@@ -51,26 +97,24 @@ a.trip-group::before {
   <h1>一叶琳旅程</h1>
   <p class="subtitle">用脚步丈量世界，用镜头记录时光</p>
   <div class="trips">
-      <!-- life-record:trips-managed:start -->
-      <a class="trip-group" href="./%E6%99%A8%E9%97%B4%E9%81%9B%E5%BC%AF/">
-        <div class="trip-group-badge">合集</div>
-        <div class="trip-group-icon">📔</div>
-        <div class="trip-group-title">晨间遛弯</div>
-        <div class="trip-group-meta">2026-04-05 ~ 2026-04-10 · 3 条记录</div>
-      </a>
-      <a class="trip-group" href="./420%E7%BE%8E%E5%9B%BD%E6%97%85%E8%A1%8C/">
-        <div class="trip-group-badge">合集</div>
-        <div class="trip-group-icon">📔</div>
-        <div class="trip-group-title">420美国旅行</div>
-        <div class="trip-group-meta">2026-04-18 ~ 2026-05-03 · 9 条记录</div>
-      </a>
-      <a class="trip-group" href="./%E5%8C%97%E4%BA%AC%E9%80%9B%E9%80%9B/">
-        <div class="trip-group-badge">合集</div>
-        <div class="trip-group-icon">📔</div>
-        <div class="trip-group-title">北京逛逛</div>
-        <div class="trip-group-meta">2026-04-04 · 1 条记录</div>
-      </a>
-      <!-- life-record:trips-managed:end -->
+<a class="trip-group" href="./%E6%99%A8%E9%97%B4%E9%81%9B%E5%BC%AF/">
+      <div class="trip-group-badge">合集</div>
+      <div class="trip-group-icon">📔</div>
+      <div class="trip-group-title">晨间遛弯</div>
+      <div class="trip-group-meta">2026-04-05 ~ 2026-04-10 · 3 条记录</div>
+    </a>
+    <a class="trip-group" href="./420%E7%BE%8E%E5%9B%BD%E6%97%85%E8%A1%8C/">
+      <div class="trip-group-badge">合集</div>
+      <div class="trip-group-icon">📔</div>
+      <div class="trip-group-title">420美国旅行</div>
+      <div class="trip-group-meta">2026-04-18 ~ 2026-05-03 · 9 条记录</div>
+    </a>
+    <a class="trip-group" href="./%E5%8C%97%E4%BA%AC%E9%80%9B%E9%80%9B/">
+      <div class="trip-group-badge">合集</div>
+      <div class="trip-group-icon">📔</div>
+      <div class="trip-group-title">北京逛逛</div>
+      <div class="trip-group-meta">2026-04-04 · 1 条记录</div>
+    </a>
   </div>
   <p class="footer">一叶琳旅程</p>
 </div>
