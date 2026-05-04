@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>迪士尼乐园 · 420美国旅行</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: "Songti SC", "STSong", "Noto Serif CJK SC", "Source Han Serif SC", serif;
+  background: #faf8f5;
+  color: #2c2c2c;
+  line-height: 1.9;
+  padding: 60px 20px 80px;
+}
+.wrap { max-width: 720px; margin: 0 auto; }
+.crumbs {
+  font-size: 13px;
+  color: #999;
+  margin-bottom: 32px;
+  letter-spacing: 1px;
+}
+.crumbs a { color: #888; text-decoration: none; }
+.crumbs a:hover { color: #555; }
+h1 {
+  font-size: 28px;
+  font-weight: 500;
+  letter-spacing: 3px;
+  color: #1a1a1a;
+  margin-bottom: 8px;
+}
+.meta {
+  font-size: 13px;
+  color: #999;
+  letter-spacing: 1px;
+  margin-bottom: 40px;
+}
+.narrative {
+  font-size: 16px;
+  line-height: 2.0;
+  color: #333;
+  text-indent: 2em;
+  margin-bottom: 56px;
+  padding: 0 4px;
+}
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+@media (min-width: 720px) {
+  .gallery { grid-template-columns: repeat(3, 1fr); }
+}
+.photo {
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  cursor: zoom-in;
+  display: flex;
+  flex-direction: column;
+}
+.photo img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.3s;
+}
+.photo:hover img { transform: scale(1.02); }
+.photo .caption {
+  padding: 12px 14px;
+  font-size: 13px;
+  line-height: 1.7;
+  color: #555;
+  font-family: "PingFang SC", "Hiragino Sans GB", sans-serif;
+}
+.photo .caption .t {
+  font-weight: 600;
+  color: #2c2c2c;
+  display: block;
+  margin-bottom: 2px;
+}
+.lightbox {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.92);
+  z-index: 100;
+  align-items: center;
+  justify-content: center;
+  cursor: zoom-out;
+  padding: 20px;
+}
+.lightbox.show { display: flex; }
+.lightbox img {
+  max-width: 100%;
+  max-height: 90vh;
+  object-fit: contain;
+  box-shadow: 0 8px 60px rgba(0,0,0,0.5);
+}
+.footer {
+  text-align: center;
+  margin-top: 60px;
+  font-size: 12px;
+  color: #ccc;
+  letter-spacing: 2px;
+}
+.footer a { color: #999; text-decoration: none; }
+.footer a:hover { color: #555; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="crumbs">
+    <a href="../../">一叶琳旅程</a>
+    &nbsp;&middot;&nbsp;
+    <a href="../">420美国旅行</a>
+  </div>
+  <h1>迪士尼乐园</h1>
+  <div class="meta">2026-05-04  &middot;  共 7 张</div>
+  <div class="narrative">2026年5月4日，这一天终于如约而至，我踏入了这片期待已久的梦幻之地。迪斯尼乐园的入口，那座标志性的钟楼高挂着彩旗，蜿蜒的彩带在风中轻舞，蓝天白云下，整个乐园都洋溢着一股难以言喻的欢庆。我和</div>
+  <div class="gallery">
+    <figure class="photo"><img src="images/2026-05-04-%E8%BF%AA%E5%A3%AB%E5%B0%BC%E4%B9%90%E5%9B%AD-01.jpg" alt="幽灵公馆" loading="lazy"><figcaption class="caption"><span class="t">幽灵公馆</span>宏伟庄园，黑幔与雕花栏杆添神秘，蓝天白云下游客排队。</figcaption></figure><figure class="photo"><img src="images/2026-05-04-%E8%BF%AA%E5%A3%AB%E5%B0%BC%E4%B9%90%E5%9B%AD-02.jpg" alt="童话巴士" loading="lazy"><figcaption class="caption"><span class="t">童话巴士</span>迪士尼复古双层巴士穿梭大街，彩旗飘扬，洋溢着童话般的欢乐。</figcaption></figure><figure class="photo"><img src="images/2026-05-04-%E8%BF%AA%E5%A3%AB%E5%B0%BC%E4%B9%90%E5%9B%AD-03.jpg" alt="星战边陲" loading="lazy"><figcaption class="caption"><span class="t">星战边陲</span>千年隼号停泊异星港，游客如织，沉浸星战世界。</figcaption></figure><figure class="photo"><img src="images/2026-05-04-%E8%BF%AA%E5%A3%AB%E5%B0%BC%E4%B9%90%E5%9B%AD-04.jpg" alt="金色童梦" loading="lazy"><figcaption class="caption"><span class="t">金色童梦</span>华丽旋转木马，金色灯光闪烁，承载童年欢乐与梦想。</figcaption></figure><figure class="photo"><img src="images/2026-05-04-%E8%BF%AA%E5%A3%AB%E5%B0%BC%E4%B9%90%E5%9B%AD-05.jpg" alt="梦幻乐园" loading="lazy"><figcaption class="caption"><span class="t">梦幻乐园</span>情侣戴米奇帽，迪士尼乐园入口前合影，阳光明媚，童趣盎然。</figcaption></figure><figure class="photo"><img src="images/2026-05-04-%E8%BF%AA%E5%A3%AB%E5%B0%BC%E4%B9%90%E5%9B%AD-06.jpg" alt="童心未泯" loading="lazy"><figcaption class="caption"><span class="t">童心未泯</span>缤纷旋转木马，灯光闪烁，笑脸盈盈，尽享童趣。</figcaption></figure><figure class="photo"><img src="images/2026-05-04-%E8%BF%AA%E5%A3%AB%E5%B0%BC%E4%B9%90%E5%9B%AD-07.jpg" alt="梦幻之门" loading="lazy"><figcaption class="caption"><span class="t">梦幻之门</span>迪士尼乐园入口，钟楼挂旗，彩带装饰，蓝天白云下洋溢着欢庆气氛。</figcaption></figure>
+  </div>
+  <div class="footer">
+    <a href="../">← 返回 420美国旅行</a>
+  </div>
+</div>
+<div class="lightbox"><img src="" alt=""></div>
+<script>
+(function(){
+  var box = document.querySelector('.lightbox');
+  var img = box.querySelector('img');
+  document.querySelectorAll('.photo img').forEach(function(el){
+    el.addEventListener('click', function(){
+      img.src = el.src;
+      box.classList.add('show');
+    });
+  });
+  box.addEventListener('click', function(){ box.classList.remove('show'); });
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape') box.classList.remove('show');
+  });
+})();
+</script>
+</body>
+</html>
